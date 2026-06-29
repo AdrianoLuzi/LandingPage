@@ -1,1 +1,10 @@
+/* src/styles/global.css */
 @import "tailwindcss";
+
+/* Aquí definimos tu paleta para usar las clases bg-kernel-dark, text-kernel-gold, etc. */
+@theme{
+  --color-kernel-dark: #222121;
+  --color-kernel-blue: #4E6D93;
+  --color-kernel-green: #C8DDA4;
+  --color-kernel-white: #FFFFFF;
+}
