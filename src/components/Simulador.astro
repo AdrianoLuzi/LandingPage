@@ -1,0 +1,185 @@
+<section id="simulador" class="relative bg-[#0A101D] py-24 border-t border-[#476A8A]/20">
+    
+    <div class="absolute top-0 right-0 w-96 h-96 bg-[#D4F2B3] opacity-5 blur-[150px] rounded-full pointer-events-none z-0"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-8">
+        
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#E2E8F0] mb-3">Simulá tu Inversión</h2>
+            <p class="text-sm text-gray-400">Descubrí un estimado al instante según las necesidades de tu proyecto.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            
+            <div class="lg:col-span-2 space-y-8 bg-[#1A2332]/50 p-8 rounded-xl border border-[#476A8A]/30 shadow-2xl backdrop-blur-sm">
+                
+                <div class="flex flex-col gap-3">
+                    <label class="text-[#D4F2B3] font-bold text-sm tracking-wide uppercase">1. Rubro del Proyecto</label>
+                    <select id="sim-rubro" class="w-full bg-[#0A101D] border border-[#476A8A]/50 rounded-md p-4 text-sm text-gray-200 focus:outline-none focus:border-[#D4F2B3] transition appearance-none cursor-pointer">
+                        <option value="0">Seleccioná un rubro (Base estándar)</option>
+                        <option value="300">E-Commerce / Tienda Online (+ Complejidad)</option>
+                        <option value="500">Fintech / Billetera Virtual (+ Alta Seguridad)</option>
+                        <option value="200">Salud / Gestión de Turnos (+ Bases de Datos)</option>
+                        <option value="150">Inmobiliaria / Catálogo (+ Galerías y Mapas)</option>
+                        <option value="400">Logística / Tracking (+ Geolocalización)</option>
+                    </select>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <label class="text-[#D4F2B3] font-bold text-sm tracking-wide uppercase">2. Funcionalidades Clave</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="sim-funcionalidades">
+                        
+                        <label class="relative flex items-center p-4 border border-[#476A8A]/40 rounded-md cursor-pointer hover:bg-[#476A8A]/10 transition">
+                            <input type="checkbox" value="150" class="sim-checkbox peer sr-only">
+                            <div class="w-5 h-5 border-2 border-[#476A8A] rounded-sm peer-checked:bg-[#D4F2B3] peer-checked:border-[#D4F2B3] flex items-center justify-center transition mr-3">
+                                <svg class="w-3 h-3 text-[#0A101D] opacity-0 peer-checked:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span class="text-sm text-gray-300 peer-checked:text-white font-medium">Panel de Autogestión</span>
+                        </label>
+
+                        <label class="relative flex items-center p-4 border border-[#476A8A]/40 rounded-md cursor-pointer hover:bg-[#476A8A]/10 transition">
+                            <input type="checkbox" value="250" class="sim-checkbox peer sr-only">
+                            <div class="w-5 h-5 border-2 border-[#476A8A] rounded-sm peer-checked:bg-[#D4F2B3] peer-checked:border-[#D4F2B3] flex items-center justify-center transition mr-3">
+                                <svg class="w-3 h-3 text-[#0A101D] opacity-0 peer-checked:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span class="text-sm text-gray-300 peer-checked:text-white font-medium">Integración MercadoPago</span>
+                        </label>
+
+                        <label class="relative flex items-center p-4 border border-[#476A8A]/40 rounded-md cursor-pointer hover:bg-[#476A8A]/10 transition">
+                            <input type="checkbox" value="300" class="sim-checkbox peer sr-only">
+                            <div class="w-5 h-5 border-2 border-[#476A8A] rounded-sm peer-checked:bg-[#D4F2B3] peer-checked:border-[#D4F2B3] flex items-center justify-center transition mr-3">
+                                <svg class="w-3 h-3 text-[#0A101D] opacity-0 peer-checked:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span class="text-sm text-gray-300 peer-checked:text-white font-medium">Chatbot con IA (ChatGPT)</span>
+                        </label>
+
+                        <label class="relative flex items-center p-4 border border-[#476A8A]/40 rounded-md cursor-pointer hover:bg-[#476A8A]/10 transition">
+                            <input type="checkbox" value="100" class="sim-checkbox peer sr-only">
+                            <div class="w-5 h-5 border-2 border-[#476A8A] rounded-sm peer-checked:bg-[#D4F2B3] peer-checked:border-[#D4F2B3] flex items-center justify-center transition mr-3">
+                                <svg class="w-3 h-3 text-[#0A101D] opacity-0 peer-checked:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span class="text-sm text-gray-300 peer-checked:text-white font-medium">Notificaciones por WhatsApp</span>
+                        </label>
+
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <label class="text-[#D4F2B3] font-bold text-sm tracking-wide uppercase">3. Tiempo de Entrega</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="sim-tiempo">
+                        
+                        <label class="relative flex flex-col items-center p-4 border border-[#476A8A]/40 rounded-md cursor-pointer hover:bg-[#476A8A]/10 transition text-center group">
+                            <input type="radio" name="tiempo" value="1" class="sim-radio peer sr-only" checked>
+                            <span class="text-sm font-bold text-gray-300 peer-checked:text-[#D4F2B3] mb-1">Estándar</span>
+                            <span class="text-[10px] text-gray-500">2 a 3 meses</span>
+                            <div class="absolute inset-0 border-2 border-transparent peer-checked:border-[#D4F2B3] rounded-md pointer-events-none transition"></div>
+                        </label>
+
+                        <label class="relative flex flex-col items-center p-4 border border-[#476A8A]/40 rounded-md cursor-pointer hover:bg-[#476A8A]/10 transition text-center group">
+                            <input type="radio" name="tiempo" value="1.2" class="sim-radio peer sr-only">
+                            <span class="text-sm font-bold text-gray-300 peer-checked:text-[#D4F2B3] mb-1">Acelerado</span>
+                            <span class="text-[10px] text-gray-500">1 a 2 meses (+20%)</span>
+                            <div class="absolute inset-0 border-2 border-transparent peer-checked:border-[#D4F2B3] rounded-md pointer-events-none transition"></div>
+                        </label>
+
+                        <label class="relative flex flex-col items-center p-4 border border-[#476A8A]/40 rounded-md cursor-pointer hover:bg-[#476A8A]/10 transition text-center group">
+                            <input type="radio" name="tiempo" value="1.5" class="sim-radio peer sr-only">
+                            <span class="text-sm font-bold text-gray-300 peer-checked:text-[#D4F2B3] mb-1">Urgente</span>
+                            <span class="text-[10px] text-gray-500">Menos de 1 mes (+50%)</span>
+                            <div class="absolute inset-0 border-2 border-transparent peer-checked:border-[#D4F2B3] rounded-md pointer-events-none transition"></div>
+                        </label>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lg:col-span-1 sticky top-24 bg-linear-to-b from-[#6B8CFF]/10 to-transparent p-1 rounded-xl">
+                <div class="bg-[#0A101D] border border-[#6B8CFF]/30 p-8 rounded-lg h-full flex flex-col justify-between shadow-[0_0_30px_rgba(107,140,255,0.1)]">
+                    
+                    <div>
+                        <h3 class="text-[#6B8CFF] font-semibold text-sm uppercase tracking-wide mb-2">Inversión Estimada</h3>
+                        <p class="text-[10px] text-gray-400 mb-6 leading-relaxed">Este valor es una proyección inicial basada en tus selecciones. El costo exacto se definirá tras una reunión técnica.</p>
+                        
+                        <div class="text-5xl font-bold text-white mb-2 flex items-baseline gap-1">
+                            <span class="text-2xl text-gray-500">$</span>
+                            <span id="sim-precio-final">0</span>
+                        </div>
+                        <span class="text-xs text-gray-500 font-semibold uppercase">USD / Dólares</span>
+                    </div>
+
+                    <div class="mt-10">
+                        <div class="w-full h-px bg-linear-to-r from-transparent via-[#476A8A]/50 to-transparent mb-6"></div>
+                        <a href="#contacto" class="w-full flex justify-center items-center bg-[#6B8CFF] text-[#0A101D] font-bold py-4 rounded-md hover:bg-white transition duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(107,140,255,0.4)]">
+                            Solicitar Propuesta Exacta
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    const PRECIO_BASE = 500;
+
+    // Le especificamos a TypeScript qué tipo de elemento exacto es cada uno
+    const selectRubro = document.getElementById('sim-rubro') as HTMLSelectElement | null;
+    const checkboxesFunciones = document.querySelectorAll<HTMLInputElement>('.sim-checkbox');
+    const radiosTiempo = document.querySelectorAll<HTMLInputElement>('.sim-radio');
+    const displayPrecio = document.getElementById('sim-precio-final');
+
+    function calcularPresupuesto() {
+        if (!displayPrecio) return;
+
+        let total = PRECIO_BASE;
+
+        // Verificamos que selectRubro no sea nulo antes de leer su .value
+        if (selectRubro) {
+            total += parseInt(selectRubro.value) || 0;
+        }
+
+        checkboxesFunciones.forEach(checkbox => {
+            if (checkbox.checked) {
+                total += parseInt(checkbox.value) || 0;
+            }
+        });
+
+        let factorTiempo = 1;
+        radiosTiempo.forEach(radio => {
+            if (radio.checked) {
+                factorTiempo = parseFloat(radio.value) || 1;
+            }
+        });
+
+        total = total * factorTiempo;
+
+        const totalFormateado = new Intl.NumberFormat('es-AR').format(Math.round(total));
+
+        displayPrecio.style.opacity = '0';
+        setTimeout(() => {
+            displayPrecio.textContent = totalFormateado;
+            displayPrecio.style.opacity = '1';
+        }, 150);
+    }
+
+    // Los event listeners también quedan protegidos
+    if (selectRubro) selectRubro.addEventListener('change', calcularPresupuesto);
+    
+    checkboxesFunciones.forEach(checkbox => {
+        checkbox.addEventListener('change', calcularPresupuesto);
+    });
+
+    radiosTiempo.forEach(radio => {
+        radio.addEventListener('change', calcularPresupuesto);
+    });
+
+    calcularPresupuesto();
+</script>
+
+<style>
+    #sim-precio-final {
+        transition: opacity 0.15s ease-in-out;
+    }
+</style>
