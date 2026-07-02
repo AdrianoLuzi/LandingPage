@@ -2,31 +2,77 @@
     
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-75 bg-[#6B8CFF] opacity-20 blur-[120px] rounded-full pointer-events-none z-0"></div>
     
-    <div class="relative z-10 w-full max-w-5xl mx-auto px-8">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-[#476A8A]">
+    <div class="relative z-10 w-full max-w-5xl mx-auto px-8 mb-16 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#476A8A]">
             Clientes que nos avalan
         </h2>
+    </div>
+
+    <div class="relative z-10 w-full overflow-hidden flex carrusel-padre">
         
-        <div class="flex flex-wrap justify-center gap-12 md:gap-20">
-            <div class="flex flex-col items-center gap-4 group cursor-pointer">
-                <div class="w-24 h-24 rounded-full bg-[#D4F2B3] shadow-[0_0_20px_rgba(212,242,179,0.3)] group-hover:scale-105 transition transform"></div>
-                <span class="text-[10px] text-gray-500 font-semibold tracking-widest uppercase">El cliente feliz de pie aquí</span>
-            </div>
+        <div class="absolute inset-y-0 left-0 w-24 md:w-48 bg-linear-to-r from-[#0A101D] to-transparent z-20 pointer-events-none"></div>
+        <div class="absolute inset-y-0 right-0 w-24 md:w-48 bg-linear-to-l from-[#0A101D] to-transparent z-20 pointer-events-none"></div>
+
+        <div class="flex w-max animate-scroll">
             
-            <div class="flex flex-col items-center gap-4 group cursor-pointer">
-                <div class="w-24 h-24 rounded-full bg-[#D4F2B3] shadow-[0_0_20px_rgba(212,242,179,0.3)] group-hover:scale-105 transition transform"></div>
-                <span class="text-[10px] text-gray-500 font-semibold tracking-widest uppercase">El cliente feliz de pie aquí</span>
+            <div class="flex gap-16 md:gap-24 px-8 md:px-12 items-center">
+                
+                <div class="flex flex-col items-center gap-4 cursor-pointer group">
+                    <div class="w-24 h-24 rounded-full bg-[#D4F2B3] shadow-[0_0_20px_rgba(212,242,179,0.2)] group-hover:shadow-[0_0_25px_rgba(212,242,179,0.5)] transition duration-300"></div>
+                    <span class="text-[10px] text-gray-500 font-semibold tracking-widest uppercase">Empresa Uno</span>
+                </div>
+                
+                <div class="flex flex-col items-center gap-4 cursor-pointer group">
+                    <div class="w-24 h-24 rounded-full bg-[#D4F2B3] shadow-[0_0_20px_rgba(212,242,179,0.2)] group-hover:shadow-[0_0_25px_rgba(212,242,179,0.5)] transition duration-300"></div>
+                    <span class="text-[10px] text-gray-500 font-semibold tracking-widest uppercase">Empresa Dos</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-4 cursor-pointer group">
+                    <div class="w-24 h-24 rounded-full bg-[#D4F2B3] shadow-[0_0_20px_rgba(212,242,179,0.2)] group-hover:shadow-[0_0_25px_rgba(212,242,179,0.5)] transition duration-300"></div>
+                    <span class="text-[10px] text-gray-500 font-semibold tracking-widest uppercase">Empresa Tres</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-4 cursor-pointer group">
+                    <div class="w-24 h-24 rounded-full bg-[#D4F2B3] shadow-[0_0_20px_rgba(212,242,179,0.2)] group-hover:shadow-[0_0_25px_rgba(212,242,179,0.5)] transition duration-300"></div>
+                    <span class="text-[10px] text-gray-500 font-semibold tracking-widest uppercase">Empresa Cuatro</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-4 cursor-pointer group">
+                    <div class="w-24 h-24 rounded-full bg-[#D4F2B3] shadow-[0_0_20px_rgba(212,242,179,0.2)] group-hover:shadow-[0_0_25px_rgba(212,242,179,0.5)] transition duration-300"></div>
+                    <span class="text-[10px] text-gray-500 font-semibold tracking-widest uppercase">Empresa Cinco</span>
+                </div>
+
             </div>
 
-            <div class="flex flex-col items-center gap-4 group cursor-pointer">
-                <div class="w-24 h-24 rounded-full bg-[#D4F2B3] shadow-[0_0_20px_rgba(212,242,179,0.3)] group-hover:scale-105 transition transform"></div>
-                <span class="text-[10px] text-gray-500 font-semibold tracking-widest uppercase">El cliente feliz de pie aquí</span>
+            <div class="flex gap-16 md:gap-24 px-8 md:px-12 items-center">
+                <div class="flex flex-col items-center gap-4 cursor-pointer group"><div class="w-24 h-24 rounded-full bg-[#D4F2B3] shadow-[0_0_20px_rgba(212,242,179,0.2)] group-hover:shadow-[0_0_25px_rgba(212,242,179,0.5)] transition duration-300"></div><span class="text-[10px] text-gray-500 font-semibold tracking-widest uppercase">Empresa Uno</span></div>
+                <div class="flex flex-col items-center gap-4 cursor-pointer group"><div class="w-24 h-24 rounded-full bg-[#D4F2B3] shadow-[0_0_20px_rgba(212,242,179,0.2)] group-hover:shadow-[0_0_25px_rgba(212,242,179,0.5)] transition duration-300"></div><span class="text-[10px] text-gray-500 font-semibold tracking-widest uppercase">Empresa Dos</span></div>
+                <div class="flex flex-col items-center gap-4 cursor-pointer group"><div class="w-24 h-24 rounded-full bg-[#D4F2B3] shadow-[0_0_20px_rgba(212,242,179,0.2)] group-hover:shadow-[0_0_25px_rgba(212,242,179,0.5)] transition duration-300"></div><span class="text-[10px] text-gray-500 font-semibold tracking-widest uppercase">Empresa Tres</span></div>
+                <div class="flex flex-col items-center gap-4 cursor-pointer group"><div class="w-24 h-24 rounded-full bg-[#D4F2B3] shadow-[0_0_20px_rgba(212,242,179,0.2)] group-hover:shadow-[0_0_25px_rgba(212,242,179,0.5)] transition duration-300"></div><span class="text-[10px] text-gray-500 font-semibold tracking-widest uppercase">Empresa Cuatro</span></div>
+                <div class="flex flex-col items-center gap-4 cursor-pointer group"><div class="w-24 h-24 rounded-full bg-[#D4F2B3] shadow-[0_0_20px_rgba(212,242,179,0.2)] group-hover:shadow-[0_0_25px_rgba(212,242,179,0.5)] transition duration-300"></div><span class="text-[10px] text-gray-500 font-semibold tracking-widest uppercase">Empresa Cinco</span></div>
             </div>
 
-            <div class="flex flex-col items-center gap-4 group cursor-pointer">
-                <div class="w-24 h-24 rounded-full bg-[#D4F2B3] shadow-[0_0_20px_rgba(212,242,179,0.3)] group-hover:scale-105 transition transform"></div>
-                <span class="text-[10px] text-gray-500 font-semibold tracking-widest uppercase">El cliente feliz de pie aquí</span>
-            </div>
         </div>
     </div>
 </section>
+
+<style>
+    /* Definimos la animación clave (Keyframes) */
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        /* Se mueve exactamente un -50% del ancho de su contenedor flex.
+           Como hay 2 grupos idénticos, el -50% es exactamente donde empieza el Grupo 2 */
+        100% { transform: translateX(-50%); }
+    }
+
+    .animate-scroll {
+        /* 25s es el tiempo que tarda en dar una vuelta. 
+           Si lo quieres más rápido, bájalo a 15s. Si lo quieres más lento, súbelo a 40s.
+           'linear' asegura que no frene ni acelere en las curvas. */
+        animation: scroll 25s linear infinite;
+    }
+
+    .carrusel-padre:hover .animate-scroll {
+        animation-play-state: paused !important;
+    }
+</style>
