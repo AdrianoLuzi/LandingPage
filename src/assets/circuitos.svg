@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 4000 3000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <rect x="0" y="0" width="4000" height="3000" style="fill:rgb(130,130,130);"/>
+    <g id="lineas">
+        <path d="M180,480L180,440L200,420L200,400" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M420,480L420,460" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M440,480L440,450" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M460,480L460,470" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M480,480L480,450" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M500,360L400,360L380,340" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M500,380L380,380L360,360" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M500,280L480,340L400,340" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M420,320L460,320L480,260L503,260" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M500,240L440,240" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M500,220L460,220" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M500,200L480,200" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M320,300L300,320L380,320" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M380,240L300,260L300,300L320,300" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M380,220L320,240L320,255" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M300,280L380,280" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <g transform="matrix(1,0,0,1.176471,0,-45.882353)">
+            <path d="M340,277L340,260L400,260" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:1.91px;"/>
+        </g>
+        <path d="M340,280L340,300L420,300" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M400,260L400,180" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M380,220L380,180" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M420,300L420,180" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M380,160L420,120" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M460,140L460,120L420,120" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M380,180L380,160" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M400,180L440,140" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M440,158L440,140" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M420,180L480,180" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M240,220L280,240L280,300" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M240,240L240,248" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M200,300L260,300L260,248L240,248" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M220,200L220,160L300,160L380,80L480,80" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M220,180L320,180L400,100L460,100" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M300,220L240,220L280,200L300,200" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M160,240L160,220L180,220" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M0,300L40,300" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M0,340L40,340" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M240,240L200,240" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M240,220L220,220L200,240" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M240,248L240,280L160,280L160,300L200,320" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M0,240L40,240" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M0,260L50,260L60,280" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <g transform="matrix(0.816327,0,0,1,0,0)">
+            <path d="M0,280L49,280" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.28px;"/>
+        </g>
+        <path d="M40,280L50,300" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M40,300L40,320" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M60,320L40,320" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M40,340L60,340" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M0,320L20,320" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M0,420L100,420L160,360L300,360" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M0,440L120,440L180,380" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M300,380L180,380" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M0,160L120,160L160,200" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M220,200L160,200" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <g transform="matrix(1.0375,0,0,1,0,0)">
+            <path d="M80,340L60,360L0,360" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.04px;"/>
+        </g>
+        <g transform="matrix(1,0,0,0.975,3,8.5)">
+            <path d="M0,220L60,220L80,240L80,340" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.11px;"/>
+        </g>
+        <path d="M0,60L120,60L160,80" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M0,100L200,100" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M0,120L240,120" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M0,140L280,140" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M200,100L240,60" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M240,120L300,60" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M280,140L360,60L500,60" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M0,180L80,180L120,220" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M120,360L80,400" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M0,400L80,400" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M120,360L120,220" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M0,20L120,20L160,40" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M0,40L120,40L160,60" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M0,0L160,0L180,20L180,60" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M320,480L380,420L500,420" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M280,0L280,39" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M300,0L300,20L320,20L320,60" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M340,0L340,19.5L360,39L420,39L440,19.5L440,0" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M420,0L400,20L380,20L360,0" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M260.495,0L260.495,40" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M240,0L240,20" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M200,480L200,440L220,420L220,400" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M240,480L240,400L320,400L320,340L140,340L140,260L160,240L200,240" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M280,480L360,400L500,400" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        <path d="M360,480L400,440L500,440" style="fill:none;stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+    </g>
+    <g id="circulos">
+        <g transform="matrix(1,0,0,1,-21,-79)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,79,-99)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,79,-139)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,159,91)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,139,-221)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,159,-239)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,179,-199)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-1,1)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-241,-99)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-121,-159)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-1,-179)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-1,-159)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-21,-79)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-101,-79)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-1,-319)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-61,-319)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-121,-319)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-141,-299)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,159,-279)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,180,-299)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,200,-319)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-101,-59)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-1,-19)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-281.009181,-59)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-241,-59)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-241,-39)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-251,-79)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-141,-339)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-141,-319)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,19,-319)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-21,-339)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-40.504591,-339)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-61,-359)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,179,-179)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,159,-159)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,139,-139)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,119,-59)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,99,-39)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,79,-39)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,59,-19)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,139,70.280306)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,179,71)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-81,21)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-101,21)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,119,81)">
+            <circle cx="301" cy="379" r="1" style="fill:rgb(155,123,0);stroke:rgb(255,194,70);stroke-opacity:0.43;stroke-width:2.08px;"/>
+        </g>
+    </g>
+</svg>
