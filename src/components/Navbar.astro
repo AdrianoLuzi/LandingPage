@@ -3,28 +3,32 @@
 ---
 
 <nav id="navbar" class="flex bg-black/30 fixed z-50 top-0 inset-x-0 justify-between items-center py-6 px-6 md:px-12 lg:px-24 transition-all duration-300">
-    <div class="flex items-center gap-3">
+    <a href="#hero" class="flex items-center gap-3">
         <div class="w-8 h-8 bg-kernel-blue rounded-sm flex items-center justify-center text-white font-bold text-xs">
             KC
         </div>
         <span class="font-bold text-xl text-kernel-blue tracking-wide">Kernel Cynapse</span>
-    </div>
+    </a>
 
     <ul class="hidden md:flex gap-8 text-sm font-semibold text-kernel-blue">
         <li><a href="#soluciones" class="hover:text-white transition duration-300">Soluciones</a></li>
-        <li><a href="#tecnologias" class="hover:text-white transition duration-300">Tecnologías</a></li>
-        <li><a href="#nosotros" class="hover:text-white transition duration-300">Nosotros</a></li>
+        <li><a href="#clientes" class="hover:text-white transition duration-300">Nuestros Clientes</a></li>
+        <li><a href="#faq" class="hover:text-white transition duration-300">Nosotros</a></li>
     </ul>
 
     <button class="hidden md:block border bg-kernel-green border-kernel-dark text-kernel-dark font-semibold px-6 py-2 rounded-md hover:bg-kernel-blue hover:text-white transition duration-300">
         Contacto
     </button>
 
-    <button class="md:hidden text-kernel-blue focus:outline-none">
+    <a href="#simulador" class="md:hidden bg-[#D4F2B3] text-[#0A101D] font-bold px-4 py-2 md:px-6 md:py-2.5 rounded-md hover:bg-white hover:scale-105 transition-all duration-300 text-xs md:text-sm shadow-[0_0_15px_rgba(212,242,179,0.2)]">
+        Cotizar Proyecto
+    </a>
+
+    <!-- <button class="md:hidden text-kernel-blue focus:outline-none">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
-    </button>
+    </button> -->
 </nav>
 
 <script>
