@@ -13,3 +13,22 @@
   --color-kernel-txtDblue: #172554;
   --color-kernel-txtDblue2: #1e293b;
 }
+
+/* 1. Estado inicial oculto y desplazado hacia abajo */
+    .reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Movimiento suave y elegante */
+    }
+
+    /* 2. Estado visible al entrar en pantalla */
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* 3. Clases auxiliares para crear un efecto cascada (escalonado) */
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+    .delay-400 { transition-delay: 400ms; }
