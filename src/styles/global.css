@@ -15,17 +15,33 @@
 }
 
 /* 1. Estado inicial oculto y desplazado hacia abajo */
-    .reveal {
+    /* .reveal {
         opacity: 0;
         transform: translateY(50px);
-        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Movimiento suave y elegante */
+        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);  Movimiento suave y elegante 
     }
 
-    /* 2. Estado visible al entrar en pantalla */
+     2. Estado visible al entrar en pantalla 
     .reveal.active {
         opacity: 1;
         transform: translateY(0);
-    }
+    } */
+
+/* 1. Estado inicial: Oculto, con un ligero blur (desenfoque) y apenas un 5% más pequeño */
+.reveal {
+    opacity: 0;
+    /* En lugar de 50px verticalmente, solo trabajamos con escala y blur */
+    transform: scale(0.95);
+    filter: blur(5px); /* Pequeño efecto de desenfoque al aparecer */
+    transition: opacity 1.2s ease-out, filter 1s ease-out, transform 1s ease-out; /* Transiciones suaves */
+}
+
+/* 2. Estado visible: Al entrar en pantalla, todo vuelve a su lugar y enfoque original */
+.reveal.active {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px); /* El contenido se enfoca */
+}
 
     /* 3. Clases auxiliares para crear un efecto cascada (escalonado) */
     .delay-100 { transition-delay: 100ms; }
