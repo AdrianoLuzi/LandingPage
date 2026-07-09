@@ -1,186 +1,565 @@
-<section id="simulador" class="croll-mt-20 relative min-h-screen bg-[#0A101D] flex flex-col items-center justify-center overflow-hidden bg-linear-to-b py-12">
-    
+---
+// Simulador.astro
+---
 
-    <div class="relative z-10 max-w-6xl mx-auto px-8">
+<section id="simulador" class="scroll-mt-20 relative min-h-screen bg-[#0A101D] flex flex-col items-center justify-center overflow-hidden bg-linear-to-b py-12">
+    <div class="wrapper w-full px-4 sm:px-6 lg:px-8">
         
+        <header class="main-header">
+            <h1>Simulá tu Inversión</h1>
+            <p>Elegí las especificaciones de tu plataforma y obtené un presupuesto estimado de desarrollo al instante.</p>
+        </header>
 
-
-        <div class="text-center mb-12 md:mb-16">
-            <h2 class="reveal text-4xl md:text-5xl font-bold text-center mb-3 text-kernel-blue opacity-90 tracking-wide">Simulá tu Inversión</h2>
-            <p class="text-xs text-gray-400 px-4">Descubrí un estimado al instante según las necesidades de tu proyecto.</p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div class="workspace">
             
-            <div class="lg:col-span-2 space-y-8 bg-[#1A2332]/50 p-8 rounded-xl border border-[#476A8A]/30 shadow-2xl backdrop-blur-sm">
+            <div class="configurator">
                 
-                <div class="flex flex-col gap-3">
-                    <label class="text-[#D4F2B3] font-bold text-sm tracking-wide uppercase">1. Rubro del Proyecto</label>
-                    <select id="sim-rubro" class="w-full bg-[#0A101D] border border-[#476A8A]/50 rounded-md p-4 text-sm text-gray-200 focus:outline-none focus:border-[#D4F2B3] transition appearance-none cursor-pointer">
-                        <option value="0">Seleccioná un rubro (Base estándar)</option>
-                        <option value="300">E-Commerce / Tienda Online (+ Complejidad)</option>
-                        <option value="500">Fintech / Billetera Virtual (+ Alta Seguridad)</option>
-                        <option value="200">Salud / Gestión de Turnos (+ Bases de Datos)</option>
-                        <option value="150">Inmobiliaria / Catálogo (+ Galerías y Mapas)</option>
-                        <option value="400">Logística / Tracking (+ Geolocalización)</option>
-                    </select>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <label class="text-[#D4F2B3] font-bold text-sm tracking-wide uppercase">2. Funcionalidades Clave</label>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="sim-funcionalidades">
-                        
-                        <label class="relative flex items-center p-4 border border-[#476A8A]/40 rounded-md cursor-pointer hover:bg-[#476A8A]/10 transition">
-                            <input type="checkbox" value="150" class="sim-checkbox peer sr-only">
-                            <div class="w-5 h-5 border-2 border-[#476A8A] rounded-sm peer-checked:bg-[#D4F2B3] peer-checked:border-[#D4F2B3] flex items-center justify-center transition mr-3">
-                                <svg class="w-3 h-3 text-[#0A101D] opacity-0 peer-checked:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                            </div>
-                            <span class="text-sm text-gray-300 peer-checked:text-white font-medium">Panel de Autogestión</span>
-                        </label>
-
-                        <label class="relative flex items-center p-4 border border-[#476A8A]/40 rounded-md cursor-pointer hover:bg-[#476A8A]/10 transition">
-                            <input type="checkbox" value="250" class="sim-checkbox peer sr-only">
-                            <div class="w-5 h-5 border-2 border-[#476A8A] rounded-sm peer-checked:bg-[#D4F2B3] peer-checked:border-[#D4F2B3] flex items-center justify-center transition mr-3">
-                                <svg class="w-3 h-3 text-[#0A101D] opacity-0 peer-checked:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                            </div>
-                            <span class="text-sm text-gray-300 peer-checked:text-white font-medium">Integración MercadoPago</span>
-                        </label>
-
-                        <label class="relative flex items-center p-4 border border-[#476A8A]/40 rounded-md cursor-pointer hover:bg-[#476A8A]/10 transition">
-                            <input type="checkbox" value="300" class="sim-checkbox peer sr-only">
-                            <div class="w-5 h-5 border-2 border-[#476A8A] rounded-sm peer-checked:bg-[#D4F2B3] peer-checked:border-[#D4F2B3] flex items-center justify-center transition mr-3">
-                                <svg class="w-3 h-3 text-[#0A101D] opacity-0 peer-checked:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                            </div>
-                            <span class="text-sm text-gray-300 peer-checked:text-white font-medium">Chatbot con IA (ChatGPT)</span>
-                        </label>
-
-                        <label class="relative flex items-center p-4 border border-[#476A8A]/40 rounded-md cursor-pointer hover:bg-[#476A8A]/10 transition">
-                            <input type="checkbox" value="100" class="sim-checkbox peer sr-only">
-                            <div class="w-5 h-5 border-2 border-[#476A8A] rounded-sm peer-checked:bg-[#D4F2B3] peer-checked:border-[#D4F2B3] flex items-center justify-center transition mr-3">
-                                <svg class="w-3 h-3 text-[#0A101D] opacity-0 peer-checked:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                            </div>
-                            <span class="text-sm text-gray-300 peer-checked:text-white font-medium">Notificaciones por WhatsApp</span>
-                        </label>
-
+                <section class="step-block" id="step-1">
+                    <div class="step-header">
+                        <h2 class="step-title">1. Rubro del Proyecto</h2>
+                        <button class="btn-edit-section" type="button" title="Modificar sección">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                            Modificar
+                        </button>
                     </div>
-                </div>
 
-                <div class="flex flex-col gap-3">
-                    <label class="text-[#D4F2B3] font-bold text-sm tracking-wide uppercase">3. Tiempo de Entrega</label>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="sim-tiempo">
-                        
-                        <label class="relative flex flex-col items-center p-4 border border-[#476A8A]/40 rounded-md cursor-pointer hover:bg-[#476A8A]/10 transition text-center group">
-                            <input type="radio" name="tiempo" value="1" class="sim-radio peer sr-only" checked>
-                            <span class="text-sm font-bold text-gray-300 peer-checked:text-[#D4F2B3] mb-1">Estándar</span>
-                            <span class="text-[10px] text-gray-500">2 a 3 meses</span>
-                            <div class="absolute inset-0 border-2 border-transparent peer-checked:border-[#D4F2B3] rounded-md pointer-events-none transition"></div>
+                    <div class="rubro-grid" id="rubro-container">
+                        <label class="rubro-item">
+                            <input type="radio" name="rubro" class="ghost-input">
+                            <div class="rubro-card">
+                                <div class="rubro-icon">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                                </div>
+                                <div class="rubro-info">
+                                    <span class="title">E-Commerce</span>
+                                    <span class="complexity">Tienda Online / Alta Complejidad</span>
+                                </div>
+                            </div>
                         </label>
 
-                        <label class="relative flex flex-col items-center p-4 border border-[#476A8A]/40 rounded-md cursor-pointer hover:bg-[#476A8A]/10 transition text-center group">
-                            <input type="radio" name="tiempo" value="1.2" class="sim-radio peer sr-only">
-                            <span class="text-sm font-bold text-gray-300 peer-checked:text-[#D4F2B3] mb-1">Acelerado</span>
-                            <span class="text-[10px] text-gray-500">1 a 2 meses (+20%)</span>
-                            <div class="absolute inset-0 border-2 border-transparent peer-checked:border-[#D4F2B3] rounded-md pointer-events-none transition"></div>
+                        <label class="rubro-item">
+                            <input type="radio" name="rubro" class="ghost-input">
+                            <div class="rubro-card">
+                                <div class="rubro-icon">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                                </div>
+                                <div class="rubro-info">
+                                    <span class="title">Fintech</span>
+                                    <span class="complexity">Billetera Virtual / Alta Seguridad</span>
+                                </div>
+                            </div>
                         </label>
 
-                        <label class="relative flex flex-col items-center p-4 border border-[#476A8A]/40 rounded-md cursor-pointer hover:bg-[#476A8A]/10 transition text-center group">
-                            <input type="radio" name="tiempo" value="1.5" class="sim-radio peer sr-only">
-                            <span class="text-sm font-bold text-gray-300 peer-checked:text-[#D4F2B3] mb-1">Urgente</span>
-                            <span class="text-[10px] text-gray-500">Menos de 1 mes (+50%)</span>
-                            <div class="absolute inset-0 border-2 border-transparent peer-checked:border-[#D4F2B3] rounded-md pointer-events-none transition"></div>
+                        <label class="rubro-item">
+                            <input type="radio" name="rubro" class="ghost-input">
+                            <div class="rubro-card">
+                                <div class="rubro-icon">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <div class="rubro-info">
+                                    <span class="title">Salud</span>
+                                    <span class="complexity">Gestión de Turnos / Base de Datos</span>
+                                </div>
+                            </div>
                         </label>
 
+                        <label class="rubro-item" id="label-otros">
+                            <input type="radio" name="rubro" id="radio-otros" class="ghost-input">
+                            <div class="rubro-card">
+                                <div class="rubro-icon">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                                </div>
+                                <div class="rubro-info">
+                                    <span class="title">Otros</span>
+                                    <span class="complexity">Personalizado a medida</span>
+                                    <div class="otros-input-wrapper" id="wrapper-otros">
+                                        <div class="custom-input-row" id="row-otros" style="margin-top: 0.8rem; margin-bottom: 0;">
+                                            <input type="text" id="input-otros" class="otros-text-input" placeholder="Ej: App de Delivery...">
+                                            <div class="action-buttons">
+                                                <button type="button" class="btn-icon-custom btn-check" id="btn-save-otros" title="Confirmar">
+                                                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                                </button>
+                                                <button type="button" class="btn-icon-custom btn-edit" id="btn-edit-otros" title="Modificar texto">
+                                                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
                     </div>
-                </div>
+                </section>
+
+                <section class="step-block" id="step-2">
+                    <div class="step-header">
+                        <h2 class="step-title">2. Funcionalidades Clave</h2>
+                        <button class="btn-edit-section" type="button" title="Modificar sección">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                            Modificar
+                        </button>
+                    </div>
+
+                    <div class="features-grid">
+                        <label class="feature-item">
+                            <input type="checkbox" class="ghost-input">
+                            <div class="feature-box">
+                                <div class="custom-checkbox"></div>
+                                <span class="feature-text">Panel de Autogestión</span>
+                            </div>
+                        </label>
+
+                        <label class="feature-item">
+                            <input type="checkbox" class="ghost-input">
+                            <div class="feature-box">
+                                <div class="custom-checkbox"></div>
+                                <span class="feature-text">Integración MercadoPago</span>
+                            </div>
+                        </label>
+
+                        <label class="feature-item">
+                            <input type="checkbox" class="ghost-input">
+                            <div class="feature-box">
+                                <div class="custom-checkbox"></div>
+                                <span class="feature-text">Chatbot con IA (ChatGPT)</span>
+                            </div>
+                        </label>
+
+                        <label class="feature-item">
+                            <input type="checkbox" class="ghost-input">
+                            <div class="feature-box">
+                                <div class="custom-checkbox"></div>
+                                <span class="feature-text">Notificaciones por WhatsApp</span>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="custom-features-manager">
+                        <span class="feature-question-text">¿Deseas agregar alguna funcionalidad adicional? Detállala aquí:</span>
+                        <div id="custom-features-list">
+                            </div>
+                    </div>
+                    
+                    <div class="step-footer">
+                        <button class="btn-listo" id="btn-listo-features" type="button">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                            Listo
+                        </button>
+                    </div>
+                </section>
+
+                <section class="step-block" id="step-3">
+                    <div class="step-header">
+                        <h2 class="step-title">3. Tiempo de Entrega</h2>
+                        <button class="btn-edit-section" type="button" title="Modificar sección">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                            Modificar
+                        </button>
+                    </div>
+
+                    <div class="timeline-container">
+                        <label style="flex: 1; display: flex;">
+                            <input type="radio" name="timeline" class="ghost-input" checked>
+                            <div class="timeline-option">
+                                <span class="time-name">Estándar</span>
+                                <span class="time-meta">2 a 3 meses</span>
+                            </div>
+                        </label>
+
+                        <label style="flex: 1; display: flex;">
+                            <input type="radio" name="timeline" class="ghost-input">
+                            <div class="timeline-option">
+                                <span class="time-name">Acelerado</span>
+                                <span class="time-meta">1 a 2 meses (+20%)</span>
+                            </div>
+                        </label>
+
+                        <label style="flex: 1; display: flex;">
+                            <input type="radio" name="timeline" class="ghost-input">
+                            <div class="timeline-option">
+                                <span class="time-name">Urgente</span>
+                                <span class="time-meta">Menos de 1 mes (+50%)</span>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="step-footer">
+                        <button class="btn-listo" id="btn-listo-timeline" type="button">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                            Listo
+                        </button>
+                    </div>
+                </section>
 
             </div>
 
-            <div class="lg:col-span-1 sticky top-24 bg-linear-to-b from-[#6B8CFF]/10 to-transparent p-1 rounded-xl">
-                <div class="bg-[#0A101D] border border-[#6B8CFF]/30 p-8 rounded-lg h-full flex flex-col justify-between shadow-[0_0_30px_rgba(107,140,255,0.1)]">
-                    
-                    <div>
-                        <h3 class="text-[#6B8CFF] font-semibold text-sm uppercase tracking-wide mb-2">Inversión Estimada</h3>
-                        <p class="text-[10px] text-gray-400 mb-6 leading-relaxed">Este valor es una proyección inicial basada en tus selecciones. El costo exacto se definirá tras una reunión técnica.</p>
-                        
-                        <div class="text-5xl font-bold text-white mb-2 flex items-baseline gap-1">
-                            <span class="text-2xl text-gray-500">$</span>
-                            <span id="sim-precio-final">0</span>
-                        </div>
-                        <span class="text-xs text-gray-500 font-semibold uppercase">USD / Dólares</span>
-                    </div>
+            <div class="summary-wrapper">
+                <aside class="summary-card">
+                    <span class="summary-label">Inversión Estimada</span>
+                    <p class="summary-text">Esta proyección inicial se calcula de forma dinámica en base a la infraestructura y plazos seleccionados.</p>
+                    <p class="estimado-text text-xs text-gray-500 mt-4 leading-tight italic">*Los valores presentados son estimativos y sujetos a ajustes tras una reunión de definición.</p>
 
-                    <div class="mt-10">
-                        <div class="w-full h-px bg-linear-to-r from-transparent via-[#476A8A]/50 to-transparent mb-6"></div>
-                        <a href="#contacto" class="w-full flex justify-center items-center bg-[#6B8CFF] text-[#0A101D] font-bold py-4 rounded-md hover:bg-white transition duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(107,140,255,0.4)]">
-                            Solicitar Propuesta Exacta
-                        </a>
-                    </div>
-                </div>
+                        <div class="price-main">
+                            <span class="price-symbol">$</span>
+                            <span class="price-val">1.500</span>
+                        </div>
+                        <span class="price-currency">USD / Dólares</span>
+                   
+                    <button class="cta-button">Solicitar Propuesta Exacta</button>
+                </aside>
             </div>
 
         </div>
     </div>
 </section>
 
+<style is:global>
+    :root {
+        --bg-main: #060913;
+        --bg-card: #0d1527;
+        --bg-card-selected: rgba(129, 140, 248, 0.06);
+        --border-color: #16223f;
+        --border-hover: #26375f;
+        --text-pure: #ffffff;
+        --text-body: #94a3b8;
+        --text-disabled: #475569;
+        --lime: #d9f99d; 
+        --lime-glow: rgba(217, 249, 157, 0.15);
+        --electric-blue: #6366f1;
+        --electric-glow: rgba(99, 102, 241, 0.25);
+        --danger-red: #ef4444;
+        --danger-bg: rgba(239, 68, 68, 0.1);
+        --success-green: #22c55e;
+        --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        --radius: 16px;
+        --radius-sm: 10px;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+     { margin: 0; padding: 0; box-sizing: border-box; }
+
+    .wrapper {
+        max-width: 1200px; margin: 0 auto; color: var(--text-pure); font-family: var(--font-family);
+    }
+
+    .main-header { text-align: center; margin-bottom: 4rem; }
+    .main-header h1 {
+        font-size: 2.8rem; font-weight: 800; letter-spacing: -0.02em;
+        margin-bottom: 0.75rem; background: linear-gradient(135deg, #ffffff 40%, var(--electric-blue));
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .main-header p { color: var(--text-body); font-size: 1.15rem; max-width: 600px; margin: 0 auto; }
+
+    .workspace { display: grid; grid-template-columns: 1fr 400px; gap: 2.5rem; align-items: start; }
+
+    /* --- BLOQUES DE PASOS --- */
+    .step-block {
+        background-color: var(--bg-card); border: 1px solid var(--border-color);
+        border-radius: var(--radius); padding: 2.5rem; margin-bottom: 2rem;
+        position: relative; transition: var(--transition);
+    }
+    .step-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.75rem; }
+    .step-title {
+        font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em;
+        color: var(--lime); font-weight: 700; display: flex; align-items: center; gap: 0.5rem; margin: 0; transition: var(--transition);
+    }
+
+    .btn-edit-section {
+        background-color: var(--border-color); color: var(--text-pure); border: 1px solid var(--border-hover); padding: 0.4rem 0.8rem;
+        border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: none; align-items: center; gap: 0.4rem; transition: var(--transition);
+    }
+    .btn-edit-section:hover { background-color: var(--danger-bg); color: var(--danger-red); border-color: var(--danger-red); }
+
+    .ghost-input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+    /* --- RUBROS --- */
+    .rubro-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; transition: var(--transition); }
+    .rubro-item { display: block; animation: fadeIn 0.4s ease forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .rubro-card {
+        background-color: rgba(6, 9, 19, 0.5); border: 1px solid var(--border-color);
+        border-radius: var(--radius-sm); padding: 1.5rem; cursor: pointer; display: flex; align-items: flex-start; gap: 1rem; transition: var(--transition); height: 100%;
+    }
+    .rubro-card:hover { border-color: var(--border-hover); transform: translateY(-2px); background-color: rgba(22, 34, 63, 0.2); }
+
+    .rubro-icon {
+        width: 40px; height: 40px; background-color: rgba(115, 126, 240, 0.1); border-radius: 8px;
+        display: flex; align-items: center; justify-content: center; color: var(--electric-blue); flex-shrink: 0; transition: var(--transition);
+    }
+
+    .rubro-info { flex: 1; }
+    .rubro-info .title { display: block; font-weight: 600; font-size: 1.05rem; margin-bottom: 0.25rem; transition: var(--transition); }
+    .rubro-info .complexity { font-size: 0.8rem; color: var(--text-body); display: block; }
+
+    .ghost-input:checked + .rubro-card { border-color: var(--lime); background-color: var(--bg-card-selected); box-shadow: 0 0 15px var(--lime-glow); }
+    .ghost-input:checked + .rubro-card .rubro-icon { background-color: var(--lime); color: var(--bg-main); }
+    .ghost-input:checked + .rubro-card .title { color: var(--lime); }
+
+    .otros-input-wrapper { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease; margin-top: 0; }
+    .otros-input-wrapper.show { max-height: 60px; opacity: 1; margin-top: 0.85rem; }
+
+    /* --- FUNCIONALIDADES BASE --- */
+    .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; transition: var(--transition); margin-bottom: 1.5rem; }
+    .feature-item { display: block; transition: var(--transition); animation: fadeIn 0.3s ease forwards; }
+
+    .feature-box {
+        background-color: rgba(6, 9, 19, 0.4); border: 1px solid var(--border-color);
+        border-radius: var(--radius-sm); padding: 1rem 1.25rem; display: flex;
+        align-items: center; gap: 1rem; cursor: pointer; transition: var(--transition); height: 100%;
+    }
+    .feature-box:hover { border-color: var(--border-hover); background-color: rgba(22, 34, 63, 0.15); }
+
+    .custom-checkbox {
+        width: 22px; height: 22px; border: 2px solid var(--border-hover); border-radius: 6px;
+        display: flex; align-items: center; justify-content: center; transition: var(--transition); flex-shrink: 0;
+    }
+    .custom-checkbox::after {
+        content: ""; width: 10px; height: 6px; border-left: 2px solid var(--bg-main); border-bottom: 2px solid var(--bg-main);
+        transform: rotate(-45deg) scale(0); transition: var(--transition); margin-top: -2px;
+    }
+    
+    .feature-text { flex: 1; font-size: 0.95rem; }
+
+    .ghost-input:checked + .feature-box { border-color: var(--electric-blue); background-color: rgba(99, 102, 241, 0.04); }
+    .ghost-input:checked + .feature-box .custom-checkbox { background-color: var(--electric-blue); border-color: var(--electric-blue); box-shadow: 0 0 10px var(--electric-glow); }
+    .ghost-input:checked + .feature-box .custom-checkbox::after { transform: rotate(-45deg) scale(1); }
+
+    /* --- INPUTS DINÁMICOS (Acá estaba el problema, ¡solucionado con is:global!) --- */
+    .custom-input-row { position: relative; display: flex; width: 100%; margin-bottom: 0.8rem; transition: var(--transition); }
+    .custom-input-row:last-child { margin-bottom: 0; }
+
+    .custom-input-row .otros-text-input {
+        width: 100%; background-color: rgba(0, 0, 0, 0.3); border: 1px solid var(--border-hover);
+        border-radius: 8px; color: var(--lime); padding: 0.75rem 6.5rem 0.75rem 1rem; 
+        font-size: 0.95rem; font-weight: 500; outline: none; transition: var(--transition); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .custom-input-row .otros-text-input::placeholder { color: var(--text-disabled); font-weight: 400; font-style: italic; }
+    .custom-input-row .otros-text-input:focus { border-color: var(--lime); background-color: var(--bg-main); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 12px var(--lime-glow); }
+
+    .action-buttons { position: absolute; right: 0.4rem; top: 50%; transform: translateY(-50%); display: flex; gap: 0.4rem; }
+
+    .btn-icon-custom {
+        width: 28px; height: 28px; border-radius: 6px; border: none; display: flex; 
+        align-items: center; justify-content: center; cursor: pointer; transition: var(--transition);
+    }
+
+    .btn-check { background-color: rgba(99, 102, 241, 0.2); color: var(--electric-blue); }
+    .btn-check:hover { background-color: var(--electric-blue); color: white; box-shadow: 0 0 10px var(--electric-glow); }
+    .btn-edit { background-color: rgba(255, 255, 255, 0.1); color: var(--text-pure); display: none; }
+    .btn-edit:hover { background-color: rgba(255, 255, 255, 0.2); }
+    .btn-trash { background-color: var(--danger-bg); color: var(--danger-red); display: none; }
+    .btn-trash:hover { background-color: var(--danger-red); color: white; }
+
+    /* Estado Bloqueado del input */
+    .custom-input-row.is-locked .otros-text-input { background-color: #04060b; border-color: #1b263b; color: var(--lime); box-shadow: none; pointer-events: none; }
+    .custom-input-row.is-locked .btn-check { display: none; }
+    .custom-input-row.is-locked .btn-edit, .custom-input-row.is-locked .btn-trash { display: flex; }
+
+    /* Manager Funcionalidades */
+    .custom-features-manager { background-color: rgba(99, 102, 241, 0.03); border: 1px dashed var(--border-hover); border-radius: var(--radius-sm); padding: 1.25rem; transition: var(--transition); }
+    .feature-question-text { color: var(--text-body); font-size: 0.95rem; margin-bottom: 1rem; display: block; }
+
+    /* --- LÍNEA DE TIEMPO --- */
+    .timeline-container { display: flex; background-color: rgba(6, 9, 19, 0.6); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.5rem; position: relative; transition: var(--transition); }
+    .timeline-option { flex: 1; text-align: center; padding: 1rem; cursor: pointer; z-index: 2; transition: var(--transition); border-radius: calc(var(--radius-sm) - 4px); display: flex; flex-direction: column; gap: 0.25rem; }
+    .timeline-option .time-name { font-weight: 600; font-size: 1rem; }
+    .timeline-option .time-meta { font-size: 0.8rem; color: var(--text-body); }
+    .ghost-input:checked + .timeline-option { background-color: var(--electric-blue); color: white; box-shadow: 0 4px 15px var(--electric-glow); }
+    .ghost-input:checked + .timeline-option .time-meta { color: rgba(255, 255, 255, 0.75); }
+
+    /* --- FOOTER DE SECCIÓN --- */
+    .step-footer { display: flex; justify-content: flex-end; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px dashed var(--border-hover); transition: var(--transition); }
+    .btn-listo { background-color: rgba(34, 197, 94, 0.15); color: var(--success-green); border: 1px solid var(--success-green); padding: 0.6rem 1.5rem; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; transition: var(--transition); }
+    .btn-listo:hover { background-color: var(--success-green); color: white; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3); transform: translateY(-2px); }
+
+    /* --- ESTADO CONFIRMADO (Bloqueo Visual) --- */
+    .step-block.is-confirmed { background-color: #04060b; border-color: #090e1a; }
+    .step-block.is-confirmed .rubro-grid, 
+    .step-block.is-confirmed .features-grid, 
+    .step-block.is-confirmed .timeline-container, 
+    .step-block.is-confirmed .custom-features-manager { opacity: 0.35; pointer-events: none; filter: grayscale(0.5); }
+    .step-block.is-confirmed .btn-edit-section { display: flex; }
+    .step-block.is-confirmed .step-footer { display: none; }
+
+    /* --- PANEL DE RESUMEN --- */
+    .summary-wrapper { position: sticky; top: 2rem; }
+    .summary-card { background: linear-gradient(145deg, var(--bg-card), #111c35); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: var(--radius); padding: 3rem 2.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 30px rgba(99, 102, 241, 0.05); position: relative; overflow: hidden; }
+    .summary-card::before { content: ""; position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background-color: var(--electric-blue); filter: blur(70px); opacity: 0.25; pointer-events: none; }
+    .summary-label { color: var(--electric-blue); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; display: block; }
+    .summary-text { color: var(--text-body); font-size: 0.9rem; line-height: 1.6; margin-bottom: 2.5rem; }
+    .estimado-text {color: #64748b; /* Un gris azulado oscuro que combina con tu fondo #0A101D */
+        font-size: 0.75rem; /* Equivalente a text-xs de Tailwind */
+        margin-top: 1rem;
+        font-style: italic;
+        opacity: 0.8; /* Le da ese toque de "letra chica" */
+    }
+    .price-box { margin-bottom: 2.5rem; }
+    .price-main { display: flex; align-items: baseline; gap: 0.5rem; }
+    .price-symbol { font-size: 2rem; font-weight: 500; color: var(--text-body); }
+    .price-val { font-size: 4.5rem; font-weight: 800; line-height: 1; letter-spacing: -0.03em; }
+    .price-currency { font-size: 0.85rem; color: var(--text-body); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.5rem; display: block; }
+    .cta-button { width: 100%; background-color: var(--electric-blue); color: var(--text-pure); border: none; padding: 1.25rem; border-radius: var(--radius-sm); font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: var(--transition); box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2); }
+    .cta-button:hover { background-color: #5457e6; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4); }
+
+    /* Responsive */
+    @media (max-width: 1024px) { .workspace { grid-template-columns: 1fr; } .summary-wrapper { position: static; } }
+    @media (max-width: 640px) { .rubro-grid, .features-grid { grid-template-columns: 1fr; } .timeline-container { flex-direction: column; gap: 0.5rem; } }
+</style>
+
 <script>
-    const PRECIO_BASE = 500;
+    // @ts-nocheck
+    document.addEventListener('DOMContentLoaded', () => { initSimulador(); });
+    document.addEventListener('astro:page-load', () => { initSimulador(); });
 
-    // Le especificamos a TypeScript qué tipo de elemento exacto es cada uno
-    const selectRubro = document.getElementById('sim-rubro') as HTMLSelectElement | null;
-    const checkboxesFunciones = document.querySelectorAll<HTMLInputElement>('.sim-checkbox');
-    const radiosTiempo = document.querySelectorAll<HTMLInputElement>('.sim-radio');
-    const displayPrecio = document.getElementById('sim-precio-final');
+    function initSimulador() {
+        const step1 = document.getElementById('step-1');
+        if (!step1 || step1.dataset.initialized) return;
+        step1.dataset.initialized = 'true';
 
-    function calcularPresupuesto() {
-        if (!displayPrecio) return;
+        // --- BOTONES "MODIFICAR" SECCIONES ---
+        const editButtons = document.querySelectorAll('.btn-edit-section');
+        editButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const section = this.closest('.step-block');
+                if(section) section.classList.remove('is-confirmed');
+            });
+        });
 
-        let total = PRECIO_BASE;
+        // --- LÓGICA DE PASO 1: RUBROS ---
+        const rubroContainer = document.getElementById('rubro-container');
+        const radioOtros = document.getElementById('radio-otros');
+        const wrapperOtros = document.getElementById('wrapper-otros');
+        const rowOtros = document.getElementById('row-otros');
+        const inputOtros = document.getElementById('input-otros');
+        const btnSaveOtros = document.getElementById('btn-save-otros');
+        const btnEditOtros = document.getElementById('btn-edit-otros');
 
-        // Verificamos que selectRubro no sea nulo antes de leer su .value
-        if (selectRubro) {
-            total += parseInt(selectRubro.value) || 0;
+        if(rubroContainer) {
+            rubroContainer.addEventListener('change', (e) => {
+                if (e.target?.getAttribute('name') === 'rubro') {
+                    if (radioOtros?.checked) {
+                        wrapperOtros?.classList.add('show');
+                        setTimeout(() => inputOtros?.focus(), 300);
+                    } else {
+                        wrapperOtros?.classList.remove('show');
+                        if(rowOtros) rowOtros.classList.remove('is-locked');
+                        if(inputOtros) { inputOtros.readOnly = false; inputOtros.value = ''; }
+                        setTimeout(() => { document.getElementById('step-1')?.classList.add('is-confirmed'); }, 400);
+                    }
+                }
+            });
         }
 
-        checkboxesFunciones.forEach(checkbox => {
-            if (checkbox.checked) {
-                total += parseInt(checkbox.value) || 0;
-            }
+        if(inputOtros) inputOtros.addEventListener('click', (e) => e.stopPropagation());
+
+        function confirmOtrosRubro() {
+            if (!inputOtros || inputOtros.value.trim() === '') return;
+            rowOtros?.classList.add('is-locked');
+            inputOtros.readOnly = true;
+            setTimeout(() => { document.getElementById('step-1')?.classList.add('is-confirmed'); }, 300);
+        }
+
+        if(btnSaveOtros) btnSaveOtros.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); confirmOtrosRubro(); });
+        if(inputOtros) inputOtros.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); confirmOtrosRubro(); } });
+        
+        if(btnEditOtros) btnEditOtros.addEventListener('click', (e) => {
+            e.preventDefault(); e.stopPropagation(); 
+            rowOtros?.classList.remove('is-locked');
+            if(inputOtros) { inputOtros.readOnly = false; inputOtros.focus(); }
         });
 
-        let factorTiempo = 1;
-        radiosTiempo.forEach(radio => {
-            if (radio.checked) {
-                factorTiempo = parseFloat(radio.value) || 1;
-            }
-        });
+        // --- LÓGICA DE PASO 2: FUNCIONALIDADES EXTRA ---
+        const customFeaturesList = document.getElementById('custom-features-list');
 
-        total = total * factorTiempo;
+        function createCustomFeatureInput(focus = false) {
+            if(!customFeaturesList) return;
 
-        const totalFormateado = new Intl.NumberFormat('es-AR').format(Math.round(total));
+            const row = document.createElement('div');
+            row.className = 'custom-input-row';
+            
+            row.innerHTML = `
+                <input type="text" class="otros-text-input" placeholder="Ej: Pasarela de pagos con criptomonedas...">
+                <div class="action-buttons">
+                    <button type="button" class="btn-icon-custom btn-check" title="Confirmar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                    </button>
+                    <button type="button" class="btn-icon-custom btn-edit" title="Modificar">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                    </button>
+                    <button type="button" class="btn-icon-custom btn-trash" title="Eliminar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+            `;
+            
+            customFeaturesList.appendChild(row);
 
-        displayPrecio.style.opacity = '0';
-        setTimeout(() => {
-            displayPrecio.textContent = totalFormateado;
-            displayPrecio.style.opacity = '1';
-        }, 150);
+            const input = row.querySelector('input');
+            const btnCheck = row.querySelector('.btn-check');
+            const btnEdit = row.querySelector('.btn-edit');
+            const btnTrash = row.querySelector('.btn-trash');
+
+            if (focus) input.focus();
+
+            const lockFeature = () => {
+                if (!input || input.value.trim() === '') return;
+                row.classList.add('is-locked');
+                input.readOnly = true;
+
+                // Solo si se bloqueó la última fila, creamos una nueva abajo
+                if (row === customFeaturesList.lastElementChild) {
+                    createCustomFeatureInput(true);
+                }
+            };
+
+            const unlockFeature = () => {
+                row.classList.remove('is-locked');
+                if(input) { input.readOnly = false; input.focus(); }
+            };
+
+            const removeFeature = () => {
+                row.style.opacity = '0';
+                setTimeout(() => {
+                    row.remove();
+                    // Si eliminaron la última o dejaron la lista vacía, agregamos una nueva
+                    if (customFeaturesList.children.length === 0) {
+                        createCustomFeatureInput();
+                    } else {
+                        const lastRow = customFeaturesList.lastElementChild;
+                        if (lastRow && lastRow.classList.contains('is-locked')) {
+                            createCustomFeatureInput();
+                        }
+                    }
+                }, 300);
+            };
+
+            btnCheck?.addEventListener('click', lockFeature);
+            input?.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') { e.preventDefault(); lockFeature(); }
+            });
+            btnEdit?.addEventListener('click', unlockFeature);
+            btnTrash?.addEventListener('click', removeFeature);
+        }
+
+        // Cargar el primer input vacío al inicio
+        if(customFeaturesList && customFeaturesList.children.length === 0) {
+            createCustomFeatureInput();
+        }
+
+        // --- BOTONES "LISTO" ---
+        const btnListoFeatures = document.getElementById('btn-listo-features');
+        if(btnListoFeatures) {
+            btnListoFeatures.addEventListener('click', function() {
+                document.getElementById('step-2')?.classList.add('is-confirmed');
+            });
+        }
+
+        const btnListoTimeline = document.getElementById('btn-listo-timeline');
+        if(btnListoTimeline) {
+            btnListoTimeline.addEventListener('click', function() {
+                document.getElementById('step-3')?.classList.add('is-confirmed');
+            });
+        }
     }
-
-    // Los event listeners también quedan protegidos
-    if (selectRubro) selectRubro.addEventListener('change', calcularPresupuesto);
-    
-    checkboxesFunciones.forEach(checkbox => {
-        checkbox.addEventListener('change', calcularPresupuesto);
-    });
-
-    radiosTiempo.forEach(radio => {
-        radio.addEventListener('change', calcularPresupuesto);
-    });
-
-    calcularPresupuesto();
 </script>
-
-<style>
-    #sim-precio-final {
-        transition: opacity 0.15s ease-in-out;
-    }
-</style>

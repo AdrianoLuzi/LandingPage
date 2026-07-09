@@ -1,0 +1,83 @@
+---
+// src/components/Contacto.astro
+---
+
+<section id="contacto" class="w-full py-16 px-8 flex justify-center bg-[#0d141e]">
+  <div class="max-w-5xl w-full">
+    
+    <!-- Títulos -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-[#6886a4] mb-3">Hablemos de tu Proyecto</h2>
+      <p class="text-gray-300 text-sm tracking-wide">Completa el formulario y nos pondremos en contacto contigo a la brevedad</p>
+    </div>
+
+    <!-- Contenedor de 2 columnas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-10">
+      
+      <!-- Columna Izquierda: IMAGEN -->
+      <div class="flex justify-center md:justify-end pr-0 md:pr-10">
+        <!-- 
+          👇👇👇 ACÁ VA TU IMAGEN 👇👇👇
+          Una vez que guardes la imagen en la carpeta "public",
+          modificá el "src" de esta etiqueta con el nombre de tu archivo.
+        -->
+        <img 
+          src="/ruta-de-tu-imagen.png" 
+          alt="Mascota del proyecto" 
+          class="w-64 md:w-80 object-contain drop-shadow-[0_0_25px_rgba(200,222,165,0.2)]" 
+        />
+      </div>
+
+      <!-- Columna Derecha: FORMULARIO -->
+      <div class="w-full max-w-sm">
+        <form class="flex flex-col gap-4">
+          
+          <!-- Fila: Nombre y Apellido -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex flex-col gap-1">
+              <label for="nombre" class="text-[#6886a4] font-semibold text-sm">Nombre</label>
+              <input type="text" id="nombre" placeholder="David" class="bg-transparent border border-[#233549] text-gray-300 text-sm rounded-md p-2 focus:outline-none focus:border-[#6886a4] transition-colors" />
+            </div>
+            <div class="flex flex-col gap-1">
+              <label for="apellido" class="text-[#6886a4] font-semibold text-sm">Apellido</label>
+              <input type="text" id="apellido" placeholder="Rodriguez" class="bg-transparent border border-[#233549] text-gray-300 text-sm rounded-md p-2 focus:outline-none focus:border-[#6886a4] transition-colors" />
+            </div>
+          </div>
+
+          <!-- Telefono -->
+          <div class="flex flex-col gap-1">
+            <label for="telefono" class="text-[#6886a4] font-semibold text-sm">Telefono</label>
+            <input type="tel" id="telefono" placeholder="+54 9 265 1234567" class="bg-transparent border border-[#233549] text-gray-300 text-sm rounded-md p-2 focus:outline-none focus:border-[#6886a4] transition-colors" />
+          </div>
+
+          <!-- E-mail -->
+          <div class="flex flex-col gap-1">
+            <label for="email" class="text-[#6886a4] font-semibold text-sm">E-mail</label>
+            <input type="email" id="email" placeholder="ejemplodecorreo@gmail.com" class="bg-transparent border border-[#233549] text-gray-300 text-sm rounded-md p-2 focus:outline-none focus:border-[#6886a4] transition-colors" />
+          </div>
+
+          <!-- Rubro -->
+          <div class="flex flex-col gap-1">
+            <label for="rubro" class="text-[#6886a4] font-semibold text-sm">Rubro de la Empresa</label>
+            <input type="text" id="rubro" placeholder="Metalurgica" class="bg-transparent border border-[#233549] text-gray-300 text-sm rounded-md p-2 focus:outline-none focus:border-[#6886a4] transition-colors" />
+          </div>
+
+          <!-- Descripcion -->
+          <div class="flex flex-col gap-1">
+            <label for="descripcion" class="text-[#6886a4] font-semibold text-sm">Descripcion del proyecto</label>
+            <input type="text" id="descripcion" placeholder="Que queres hacer?" class="bg-transparent border border-[#233549] text-gray-300 text-sm rounded-md p-2 focus:outline-none focus:border-[#6886a4] transition-colors" />
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- Botón Centrado Abajo -->
+    <div class="flex justify-center mt-6">
+      <button type="submit" class="bg-[#c8dea5] text-[#1c2c3e] font-bold text-sm px-10 py-2.5 rounded-md hover:bg-[#b5d386] transition-colors shadow-lg">
+        Inspírate
+      </button>
+    </div>
+
+  </div>
+</section>
