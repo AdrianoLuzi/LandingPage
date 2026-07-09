@@ -1,33 +1,282 @@
-<section
-  id="hero"
-  class=" overflow-hidden h-screen bg-linear-to-t from-[#6B8CFF] via-[#0A101D] to-[#0A101D] flex items-center justify-center"
->
-  <div
-    class="z-10 max-w-5xl mx-auto px-8 flex flex-col items-center text-center"
-  >
-    <h1 class="text-5xl md:text-7xl font-bold leading-tight text-[#E2E8F0]">
-      El núcleo tecnológico que <br />
-      <span class="text-kernel-green">impulsa tus ideas</span>
-    </h1>
-    <p
-      class="mt-8 text-sm md:text-base text-gray-300 max-w-2xl mx-auto font-light leading-relaxed"
-    >
-      Desarrollamos plataformas web integrales que conectan tus necesidades con
-      resultados reales, optimizando tu tiempo y recursos.
-    </p>
-    <div class="mt-12 flex flex-col sm:flex-row justify-center gap-6 w-full">
-      <a
-        href="#simulador"
-        class="bg-[#476A8A] text-white font-semibold text-sm px-8 py-3 rounded-md shadow-lg hover:bg-opacity-90 transition"
-      >
-        Iniciar Proyecto
-      </a>
-      <a
-        href="#faq"
-        class="bg-kernel-green text-[#1A1A1A] font-semibold text-sm px-8 py-3 rounded-md shadow-lg hover:bg-opacity-90 transition"
-      >
-        Conocer más
-      </a>
+---
+// Hero.astro
+---
+
+<section id="hero" class="relative overflow-hidden min-h-screen bg-linear-to-t from-[#6B8CFF] via-[#0A101D] to-[#0A101D] pt-32 pb-40 md:pb-56 flex flex-col items-center justify-center">
+
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        
+        <div class="absolute inset-0 opacity-20 circuito-base flex items-center justify-center">
+            <svg viewBox="0 0 3000 2400" preserveAspectRatio="xMidYMid slice" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <g transform="matrix(5.964215,0,0,5,0,0)">
+                    <path d="M180,480L180,440L200,420L200,400" />
+                    <path d="M420,480L420,460" />
+                    <path d="M440,480L440,450" />
+                    <path d="M460,480L460,470" />
+                    <path d="M480,480L480,450" />
+                    <path d="M500,360L400,360L380,340" />
+                    <path d="M500,380L380,380L360,360" />
+                    <path d="M500,280L480,340L400,340" />
+                    <path d="M420,320L460,320L480,260L503,260" />
+                    <path d="M500,240L440,240" />
+                    <path d="M500,220L460,220" />
+                    <path d="M500,200L480,200" />
+                    <path d="M320,300L300,320L380,320" />
+                    <path d="M380,240L300,260L300,300L320,300" />
+                    <path d="M380,220L320,240L320,255" />
+                    <path d="M300,280L380,280" />
+                    <g transform="matrix(1,0,0,1.176471,0,-45.882353)"><path d="M340,277L340,260L400,260" /></g>
+                    <path d="M340,280L340,300L420,300" />
+                    <path d="M400,260L400,180" />
+                    <path d="M380,220L380,180" />
+                    <path d="M420,300L420,180" />
+                    <path d="M380,160L420,120" />
+                    <path d="M460,140L460,120L420,120" />
+                    <path d="M380,180L380,160" />
+                    <path d="M400,180L440,140" />
+                    <path d="M440,158L440,140" />
+                    <path d="M420,180L480,180" />
+                    <path d="M240,220L280,240L280,300" />
+                    <path d="M240,240L240,248" />
+                    <path d="M200,300L260,300L260,248L240,248" />
+                    <path d="M220,200L220,160L300,160L380,80L480,80" />
+                    <path d="M220,180L320,180L400,100L460,100" />
+                    <path d="M300,220L240,220L280,200L300,200" />
+                    <path d="M160,240L160,220L180,220" />
+                    <path d="M0,300L40,300" />
+                    <path d="M0,340L40,340" />
+                    <path d="M240,240L200,240" />
+                    <path d="M240,220L220,220L200,240" />
+                    <path d="M240,248L240,280L160,280L160,300L200,320" />
+                    <path d="M0,240L40,240" />
+                    <path d="M0,260L50,260L60,280" />
+                    <g transform="matrix(0.816327,0,0,1,0,0)"><path d="M0,280L49,280" /></g>
+                    <path d="M40,280L50,300" />
+                    <path d="M40,300L40,320" />
+                    <path d="M60,320L40,320" />
+                    <path d="M40,340L60,340" />
+                    <path d="M0,320L20,320" />
+                    <path d="M0,420L100,420L160,360L300,360" />
+                    <path d="M0,440L120,440L180,380" />
+                    <path d="M300,380L180,380" />
+                    <path d="M0,160L120,160L160,200" />
+                    <path d="M220,200L160,200" />
+                    <g transform="matrix(1.0375,0,0,1,0,0)"><path d="M80,340L60,360L0,360" /></g>
+                    <g transform="matrix(1,0,0,0.975,3,8.5)"><path d="M0,220L60,220L80,240L80,340" /></g>
+                    <path d="M0,60L120,60L160,80" />
+                    <path d="M0,100L200,100" />
+                    <path d="M0,120L240,120" />
+                    <path d="M0,140L280,140" />
+                    <path d="M200,100L240,60" />
+                    <path d="M240,120L300,60" />
+                    <path d="M280,140L360,60L500,60" />
+                    <path d="M0,180L80,180L120,220" />
+                    <path d="M120,360L80,400" />
+                    <path d="M0,400L80,400" />
+                    <path d="M120,360L120,220" />
+                    <path d="M0,20L120,20L160,40" />
+                    <path d="M0,40L120,40L160,60" />
+                    <path d="M0,0L160,0L180,20L180,60" />
+                    <path d="M320,480L380,420L500,420" />
+                    <path d="M280,0L280,39" />
+                    <path d="M300,0L300,20L320,20L320,60" />
+                    <path d="M340,0L340,19.5L360,39L420,39L440,19.5L440,0" />
+                    <path d="M420,0L400,20L380,20L360,0" />
+                    <path d="M260.495,0L260.495,40" />
+                    <path d="M240,0L240,20" />
+                    <path d="M200,480L200,440L220,420L220,400" />
+                    <path d="M240,480L240,400L320,400L320,340L140,340L140,260L160,240L200,240" />
+                    <path d="M280,480L360,400L500,400" />
+                    <path d="M360,480L400,440L500,440" />
+                </g>
+                <g transform="matrix(5.964215,0,0,5,0,0)">
+                    <circle cx="280" cy="300" r="1" /><circle cx="380" cy="280" r="1" /><circle cx="380" cy="240" r="1" />
+                    <circle cx="460" cy="470" r="1" /><circle cx="440" cy="158" r="1" /><circle cx="460" cy="140" r="1" />
+                    <circle cx="480" cy="180" r="1" /><circle cx="300" cy="380" r="1" /><circle cx="60" cy="280" r="1" />
+                    <circle cx="180" cy="220" r="1" /><circle cx="300" cy="200" r="1" /><circle cx="300" cy="220" r="1" />
+                    <circle cx="280" cy="300" r="1" /><circle cx="200" cy="300" r="1" /><circle cx="300" cy="60" r="1" />
+                    <circle cx="240" cy="60" r="1" /><circle cx="180" cy="60" r="1" /><circle cx="160" cy="80" r="1" />
+                    <circle cx="460" cy="100" r="1" /><circle cx="481" cy="80" r="1" /><circle cx="501" cy="60" r="1" />
+                    <circle cx="200" cy="320" r="1" /><circle cx="300" cy="360" r="1" /><circle cx="18.99" cy="320" r="1" />
+                    <circle cx="60" cy="320" r="1" /><circle cx="60" cy="340" r="1" /><circle cx="50" cy="300" r="1" />
+                    <circle cx="160" cy="40" r="1" /><circle cx="160" cy="60" r="1" /><circle cx="180" cy="20" r="1" />
+                    <circle cx="420" cy="320" r="1" /><circle cx="400" cy="340" r="1" /><circle cx="380" cy="340" r="1" />
+                    <circle cx="360" cy="360" r="1" /><circle cx="440" cy="450" r="1" /><circle cx="480" cy="450" r="1" />
+                    <circle cx="220" cy="400" r="1" /><circle cx="200" cy="400" r="1" /><circle cx="420" cy="460" r="1" />
+                </g>
+            </svg>
+        </div>
+
+        <div class="absolute inset-0 opacity-100 circuito-luces flex items-center justify-center">
+            <svg viewBox="0 0 3000 2400" preserveAspectRatio="xMidYMid slice" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <g transform="matrix(5.964215,0,0,5,0,0)">
+                    <path d="M180,480L180,440L200,420L200,400" />
+                    <path d="M420,480L420,460" />
+                    <path d="M440,480L440,450" />
+                    <path d="M460,480L460,470" />
+                    <path d="M480,480L480,450" />
+                    <path d="M500,360L400,360L380,340" />
+                    <path d="M500,380L380,380L360,360" />
+                    <path d="M500,280L480,340L400,340" />
+                    <path d="M420,320L460,320L480,260L503,260" />
+                    <path d="M500,240L440,240" />
+                    <path d="M500,220L460,220" />
+                    <path d="M500,200L480,200" />
+                    <path d="M320,300L300,320L380,320" />
+                    <path d="M380,240L300,260L300,300L320,300" />
+                    <path d="M380,220L320,240L320,255" />
+                    <path d="M300,280L380,280" />
+                    <g transform="matrix(1,0,0,1.176471,0,-45.882353)"><path d="M340,277L340,260L400,260" /></g>
+                    <path d="M340,280L340,300L420,300" />
+                    <path d="M400,260L400,180" />
+                    <path d="M380,220L380,180" />
+                    <path d="M420,300L420,180" />
+                    <path d="M380,160L420,120" />
+                    <path d="M460,140L460,120L420,120" />
+                    <path d="M380,180L380,160" />
+                    <path d="M400,180L440,140" />
+                    <path d="M440,158L440,140" />
+                    <path d="M420,180L480,180" />
+                    <path d="M240,220L280,240L280,300" />
+                    <path d="M240,240L240,248" />
+                    <path d="M200,300L260,300L260,248L240,248" />
+                    <path d="M220,200L220,160L300,160L380,80L480,80" />
+                    <path d="M220,180L320,180L400,100L460,100" />
+                    <path d="M300,220L240,220L280,200L300,200" />
+                    <path d="M160,240L160,220L180,220" />
+                    <path d="M0,300L40,300" />
+                    <path d="M0,340L40,340" />
+                    <path d="M240,240L200,240" />
+                    <path d="M240,220L220,220L200,240" />
+                    <path d="M240,248L240,280L160,280L160,300L200,320" />
+                    <path d="M0,240L40,240" />
+                    <path d="M0,260L50,260L60,280" />
+                    <g transform="matrix(0.816327,0,0,1,0,0)"><path d="M0,280L49,280" /></g>
+                    <path d="M40,280L50,300" />
+                    <path d="M40,300L40,320" />
+                    <path d="M60,320L40,320" />
+                    <path d="M40,340L60,340" />
+                    <path d="M0,320L20,320" />
+                    <path d="M0,420L100,420L160,360L300,360" />
+                    <path d="M0,440L120,440L180,380" />
+                    <path d="M300,380L180,380" />
+                    <path d="M0,160L120,160L160,200" />
+                    <path d="M220,200L160,200" />
+                    <g transform="matrix(1.0375,0,0,1,0,0)"><path d="M80,340L60,360L0,360" /></g>
+                    <g transform="matrix(1,0,0,0.975,3,8.5)"><path d="M0,220L60,220L80,240L80,340" /></g>
+                    <path d="M0,60L120,60L160,80" />
+                    <path d="M0,100L200,100" />
+                    <path d="M0,120L240,120" />
+                    <path d="M0,140L280,140" />
+                    <path d="M200,100L240,60" />
+                    <path d="M240,120L300,60" />
+                    <path d="M280,140L360,60L500,60" />
+                    <path d="M0,180L80,180L120,220" />
+                    <path d="M120,360L80,400" />
+                    <path d="M0,400L80,400" />
+                    <path d="M120,360L120,220" />
+                    <path d="M0,20L120,20L160,40" />
+                    <path d="M0,40L120,40L160,60" />
+                    <path d="M0,0L160,0L180,20L180,60" />
+                    <path d="M320,480L380,420L500,420" />
+                    <path d="M280,0L280,39" />
+                    <path d="M300,0L300,20L320,20L320,60" />
+                    <path d="M340,0L340,19.5L360,39L420,39L440,19.5L440,0" />
+                    <path d="M420,0L400,20L380,20L360,0" />
+                    <path d="M260.495,0L260.495,40" />
+                    <path d="M240,0L240,20" />
+                    <path d="M200,480L200,440L220,420L220,400" />
+                    <path d="M240,480L240,400L320,400L320,340L140,340L140,260L160,240L200,240" />
+                    <path d="M280,480L360,400L500,400" />
+                    <path d="M360,480L400,440L500,440" />
+                </g>
+            </svg>
+        </div>
     </div>
-  </div>
+    <div class="relative z-10 max-w-5xl mx-auto px-8 flex flex-col items-center text-center">
+        <h1 class="text-5xl md:text-7xl font-bold leading-tight text-[#E2E8F0]">
+            El núcleo tecnológico que <br> 
+            <span class="text-kernel-green">impulsa tus ideas</span>
+        </h1>
+        <p class="mt-8 text-sm md:text-base text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+            Desarrollamos plataformas web integrales que conectan tus necesidades con resultados reales, optimizando tu tiempo y recursos.
+        </p>
+        <div class="mt-12 flex flex-col sm:flex-row justify-center gap-6 w-full">
+            <a href="#simulador" class="bg-[#476A8A] text-white font-semibold text-sm px-8 py-3 rounded-md shadow-lg hover:bg-opacity-90 transition">
+                Iniciar Proyecto
+            </a>
+            <a href="#faq" class="bg-kernel-green text-[#1A1A1A] font-semibold text-sm px-8 py-3 rounded-md shadow-lg hover:bg-opacity-90 transition">
+                Conocer más
+            </a>
+        </div>
+    </div>   
 </section>
+
+<style>
+    .circuito-base svg, 
+    .circuito-luces svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* === 1. PLACA BASE APAGADA (IMPORTANTE)=== */
+    .circuito-base path, 
+    .circuito-base line {
+        stroke: rgba(255, 255, 255, 0.08); 
+        stroke-width: 1.5px;    
+        fill: none;           
+    }
+    /* === 1. CIRCULOS (IMPORTANTE)=== */
+    .circuito-base circle {
+        fill: #172554;        
+        stroke: #172554;
+        stroke-width: 1px; 
+    }
+
+    /* === 2. MÁSCARA DEL PUNTERO (IMPORTANTE) === */
+    .circuito-luces {
+        -webkit-mask-image: radial-gradient(circle 350px at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%);
+        mask-image: radial-gradient(circle 350px at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%);
+        
+        /* 'screen' evita que los círculos agrandados sufran el glitch de desaparición */
+        mix-blend-mode: screen; 
+        transition: opacity 0.5s ease;
+    }
+
+    /* === 3. LAS LÍNEAS DE LUZ (IMPORTANTE) === */
+    .circuito-luces path, 
+    .circuito-luces line,
+    .circuito-luces circle {
+        stroke: #172554 !important; /* Color base intenso */
+        stroke-width: 1.5px !important; /* TAMAÑO DE LINEAS AL ILUMINAR*/
+        fill: none !important;
+        stroke-linecap: round !important;
+        stroke-dasharray: none !important;
+        stroke-dashoffset: 0 !important;
+        animation: latidoNeon 3s ease-in-out infinite alternate !important;
+    }
+
+</style>
+
+<script>
+    const heroSection = document.getElementById('hero');
+    const capaLuces = document.querySelector('.circuito-luces') as HTMLElement;
+
+    if (heroSection && capaLuces) {
+        // Cuando el mouse se mueve, actualiza la posición y asegura que sea visible
+        document.addEventListener('mousemove', (e) => {
+            const rect = heroSection.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            capaLuces.style.opacity = '1';
+            capaLuces.style.setProperty('--mouse-x', `${x}px`);
+            capaLuces.style.setProperty('--mouse-y', `${y}px`);
+        });
+
+        // Si el mouse sale de la ventana del navegador, apaga la luz suavemente
+        document.addEventListener('mouseleave', () => {
+            capaLuces.style.opacity = '0';
+        });
+    }
+</script>
