@@ -1,0 +1,114 @@
+---
+// src/components/Faq.astro
+
+const faqs = [
+    {
+        pregunta: "¿Qué tipo de software desarrollan?",
+        respuesta: "Desarrollamos soluciones web a medida, desde sistemas de gestión interna y plataformas de cobro hasta aplicaciones adaptables a celulares y tablets, utilizando tecnologías modernas y de alta performance."
+    },
+    {
+        pregunta: "¿Cuánto tiempo toma tener listo un proyecto?",
+        respuesta: "El tiempo varía según la complejidad del diseño y los requerimientos. Un sistema base puede tomar entre 4 y 6 semanas. Definimos un cronograma detallado con vos antes de empezar."
+    },
+    {
+        pregunta: "¿El software incluye soporte post-lanzamiento?",
+        respuesta: "Sí, totalmente. Brindamos un período de garantía y soporte técnico para asegurar que todo funcione a la perfección, además de ofrecer planes de mantenimiento y actualización."
+    },
+    {
+        pregunta: "¿Cómo garantizan la seguridad de los datos?",
+        respuesta: "Implementamos reglas de seguridad robustas, encriptación de datos sensibles y buenas prácticas de arquitectura de software para proteger toda la información de tu negocio contra vulnerabilidades."
+    },
+    {
+        pregunta: "¿Puedo integrar el sistema con mis herramientas actuales?",
+        respuesta: "Sí. Diseñamos arquitecturas flexibles que permiten conectar el nuevo software con APIs externas, pasarelas de pago, bases de datos existentes o herramientas que ya uses en tu día a día."
+    }
+];
+
+const carruselFaqs = [...faqs, ...faqs];
+---
+
+<section id="faq" class="relative bg-[#222121] min-h-screen flex flex-col justify-center overflow-hidden w-full py-20">
+    
+    <div class="absolute top-0 left-0 w-full">
+        <div class="absolute top-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#4E6D93] to-transparent shadow-[0_0_25px_8px_rgba(78,109,147,0.8)]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-8 mb-12 relative z-10">
+        <h2 class="text-4xl md:text-5xl font-bold text-center text-[#FFFFFF] tracking-wide drop-shadow-md">
+            Preguntas Frecuentes
+        </h2>
+        <p class="text-center text-[#C8DDA4]/80 mt-4 text-sm font-medium">
+            Apoyá el mouse para pausar, hacé clic para expandir la información.
+        </p>
+    </div>
+
+    <div class="marquee-container relative w-full overflow-hidden py-4">
+        <div class="marquee-inner flex gap-6 hover:[animation-play-state:paused]">
+            
+            {carruselFaqs.map((faq) => (
+                <div class="faq-card flex-none w-[320px] md:w-[380px] z-20">
+                    <details class="group bg-[#C8DDA4] rounded-xl p-5 transition-all duration-300 hover:shadow-[0_10px_25px_rgba(200,221,164,0.15)] select-none open:pb-6">
+                        
+                        <summary class="flex items-center justify-between font-bold text-[#224061] text-base md:text-lg cursor-pointer list-none tracking-wide">
+                            <span>{faq.pregunta}</span>
+                            <span class="text-[#224061] transition-transform duration-300 group-open:rotate-180 ml-3 shrink-0">
+                                <i class="fa-solid fa-chevron-down text-sm"></i>
+                            </span>
+                        </summary>
+
+                        <div class="mt-4 text-sm text-[#000000] leading-relaxed font-medium border-t border-[#224061]/20 pt-4 custom-fadeIn">
+                            {faq.respuesta}
+                        </div>
+                        
+                    </details>
+                </div>
+            ))}
+
+        </div>
+    </div>
+</section>
+
+<style>
+    .marquee-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .marquee-inner {
+        display: flex;
+        gap: 1.5rem;
+        animation: scrollMarquee 30s linear infinite;
+        width: max-content;
+    }
+
+    /* 👇 EL TRUCO MAGNÍFICO 👇 */
+    /* Si el contenedor interno tiene un elemento 'details' que esté ABIERTO ('[open]'), congela la animación */
+    .marquee-inner:has(details[open]) {
+        animation-play-state: paused;
+    }
+
+    .faq-card {
+        white-space: normal;
+    }
+
+    @keyframes scrollMarquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
+    @keyframes customFade {
+        from { opacity: 0; transform: translateY(-6px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .custom-fadeIn {
+        animation: customFade 0.25s ease-out forwards;
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+    summary {
+        list-style: none;
+    }
+</style>
