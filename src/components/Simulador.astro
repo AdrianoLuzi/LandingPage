@@ -1,12 +1,14 @@
-<section id="simulador" class="croll-mt-20 relative min-h-screen bg-[#0A101D] flex flex-col items-center justify-center overflow-hidden bg-linear-to-b py-12">
+---
+// src/components/Simulador.astro
+---
+
+<!-- Quitamos los fondos e indicamos z-10 y el typo de scroll -->
+<section id="simulador" class="scroll-mt-20 relative z-10 min-h-screen flex flex-col items-center justify-center py-12">
     
-
-    <div class="relative z-10 max-w-6xl mx-auto px-8">
+    <div class="relative z-10 max-w-6xl mx-auto px-8 w-full">
         
-
-
         <div class="text-center mb-12 md:mb-16">
-            <h2 class="reveal text-4xl md:text-5xl font-bold text-center mb-3 text-kernel-blue opacity-90 tracking-wide">Simulá tu Inversión</h2>
+            <h2 class="reveal text-4xl md:text-5xl font-bold text-center mb-3 text-[#6B8CFF] opacity-90 tracking-wide">Simulá tu Inversión</h2>
             <p class="text-xs text-gray-400 px-4">Descubrí un estimado al instante según las necesidades de tu proyecto.</p>
         </div>
 
@@ -122,10 +124,10 @@
     </div>
 </section>
 
+<!-- Mantenemos el SCRIPT intacto para la lógica del simulador -->
 <script>
     const PRECIO_BASE = 500;
 
-    // Le especificamos a TypeScript qué tipo de elemento exacto es cada uno
     const selectRubro = document.getElementById('sim-rubro') as HTMLSelectElement | null;
     const checkboxesFunciones = document.querySelectorAll<HTMLInputElement>('.sim-checkbox');
     const radiosTiempo = document.querySelectorAll<HTMLInputElement>('.sim-radio');
@@ -136,7 +138,6 @@
 
         let total = PRECIO_BASE;
 
-        // Verificamos que selectRubro no sea nulo antes de leer su .value
         if (selectRubro) {
             total += parseInt(selectRubro.value) || 0;
         }
@@ -165,7 +166,6 @@
         }, 150);
     }
 
-    // Los event listeners también quedan protegidos
     if (selectRubro) selectRubro.addEventListener('change', calcularPresupuesto);
     
     checkboxesFunciones.forEach(checkbox => {
@@ -179,6 +179,7 @@
     calcularPresupuesto();
 </script>
 
+<!-- Mantenemos el ESTILO intacto para la transición de los números -->
 <style>
     #sim-precio-final {
         transition: opacity 0.15s ease-in-out;
