@@ -1,273 +1,578 @@
 ---
-// src/components/Simulador.astro
+// src/pages/Medida.astro
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css'; 
 ---
 
-<!-- Quitamos los fondos e indicamos z-10 y el typo de scroll -->
-<section id="simulador" class="scroll-mt-20 relative z-10 min-h-screen flex flex-col items-center justify-center py-12">
-    
-    <div class="relative z-10 max-w-6xl mx-auto px-8 w-full">
-        
-        <div class="text-center mb-12 md:mb-16">
-            <h2 class="reveal text-4xl md:text-5xl font-bold text-center mb-3 text-[#6B8CFF] opacity-90 tracking-wide">Simulá tu Inversión</h2>
-            <p class="text-xs text-gray-400 px-4">Descubrí un estimado al instante según las necesidades de tu proyecto.</p>
-        </div>
+<Layout title="Cotizar a Medida | Kernel Cynapse">
+    <style>
+        /* Clase para ocultar la barra de scroll nativa en el carrusel pero permitir el scroll */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
 
-        <div class="workspace">
+    <main class="min-h-screen bg-[#0A101D] flex flex-col items-center pt-28 md:pt-32 pb-16 px-4 sm:px-6 font-sans text-[#FFFFFF]">
+        
+        <!-- Contenedor Principal con min-w-0 para que el carrusel no rompa la estructura -->
+        <div class="w-full max-w-[1100px] bg-[#222121] rounded-[2rem] p-5 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[#4E6D93]/20 relative overflow-hidden">
             
-            <div class="configurator">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[#4E6D93] opacity-[0.05] blur-[100px] pointer-events-none"></div>
+
+            <div class="flex justify-between items-center mb-8 px-2 md:px-4 relative z-10">
+                <div class="flex items-center">
+                    <div class="px-3 py-1 border-2 border-[#FFFFFF]/80 rounded-lg text-[#FFFFFF] font-black tracking-widest text-[10px] uppercase shadow-[0_0_10px_rgba(255,255,255,0.1)]">
+                        LOGO
+                    </div>
+                </div>
                 
-                <section class="step-block" id="step-1">
-                    <div class="step-header">
-                        <h2 class="step-title">1. Rubro del Proyecto</h2>
-                        <button class="btn-edit-section" type="button" title="Modificar sección">
-                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                            Modificar
-                        </button>
+                <h1 class="text-xl md:text-2xl font-bold tracking-wide text-[#FFFFFF]">Configurador de Software</h1>
+                
+                <div class="flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
+                    <span class="text-[#C8DDA4] font-black text-lg tracking-widest drop-shadow-[0_0_8px_rgba(200,221,164,0.3)]">KC</span>
+                </div>
+            </div>
+
+            <!-- Layout a 2 Columnas -->
+            <div class="flex flex-col lg:flex-row gap-6 lg:gap-8 relative z-10">
+                
+                <!-- COLUMNA IZQUIERDA: Configurador (Agregado min-w-0 vital para el slider) -->
+                <div class="flex-1 space-y-8 min-w-0">
+                    
+                    <!-- PASO 1: Nombre del Proyecto -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="flex items-center justify-center w-7 h-7 rounded-full bg-[#4E6D93]/20 text-[#C8DDA4] text-sm font-bold border border-[#4E6D93]/30">1</span>
+                            <h2 class="text-lg font-bold text-[#FFFFFF]">Tu Proyecto</h2>
+                        </div>
+                        <div class="flex gap-3 items-center origin-left">
+                            <input type="text" id="input-nombre" placeholder="Ej: Sistema de Gestión..." class="flex-1 bg-[#151515] border border-[#4E6D93]/30 rounded-xl px-4 py-3 text-[#FFFFFF] text-sm placeholder-[#FFFFFF]/30 focus:outline-none focus:border-[#C8DDA4] transition-all duration-300 shadow-inner">
+                            
+                            <button type="button" id="btn-nombre" class="w-12 h-12 shrink-0 flex items-center justify-center bg-[#2a2929] border border-[#4E6D93]/30 rounded-xl hover:bg-[#4E6D93]/20 transition-all duration-300 text-[#C8DDA4] shadow-sm">
+                                <svg id="icon-check-nombre" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                <svg id="icon-x-nombre" class="w-5 h-5 hidden transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            </button>
+                        </div>
                     </div>
 
-                    <div class="rubro-grid" id="rubro-container">
-                        <label class="rubro-item">
-                            <input type="radio" name="rubro" class="ghost-input">
-                            <div class="rubro-card">
-                                <div class="rubro-icon">
-                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    <!-- PASO 2: Plataforma Base -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="flex items-center justify-center w-7 h-7 rounded-full bg-[#4E6D93]/20 text-[#C8DDA4] text-sm font-bold border border-[#4E6D93]/30">2</span>
+                            <h2 class="text-lg font-bold text-[#FFFFFF]">Plataforma Base</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <label class="relative block cursor-pointer group/opt h-[135px]">
+                                <input type="radio" name="plataforma" value="1550" class="peer sr-only" checked>
+                                <div class="absolute inset-0 rounded-[1.2rem] bg-[#2a2929] border border-[#4E6D93]/20 p-4 transition-all duration-300 peer-checked:bg-gradient-to-br peer-checked:from-[#5b7a9e] peer-checked:to-[#4E6D93] peer-checked:border-[#C8DDA4]/40 peer-checked:-translate-y-1 group-hover/opt:-translate-y-1">
+                                    <svg class="w-6 h-6 text-[#C8DDA4] mb-2 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                    <h3 class="text-[15px] font-bold text-[#FFFFFF] mb-1">Sistema Web</h3>
+                                    <p class="text-[11px] text-[#FFFFFF]/60 peer-checked:text-[#FFFFFF]/90 leading-tight">Acceso desde navegador.</p>
                                 </div>
-                                <div class="rubro-info">
-                                    <span class="title">E-Commerce</span>
-                                    <span class="complexity">Tienda Online / Alta Complejidad</span>
-                                </div>
-                            </div>
-                        </label>
-
-                        <label class="rubro-item">
-                            <input type="radio" name="rubro" class="ghost-input">
-                            <div class="rubro-card">
-                                <div class="rubro-icon">
-                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
-                                </div>
-                                <div class="rubro-info">
-                                    <span class="title">Fintech</span>
-                                    <span class="complexity">Billetera Virtual / Alta Seguridad</span>
-                                </div>
-                            </div>
-                        </label>
-
-                        <label class="rubro-item">
-                            <input type="radio" name="rubro" class="ghost-input">
-                            <div class="rubro-card">
-                                <div class="rubro-icon">
-                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                </div>
-                                <div class="rubro-info">
-                                    <span class="title">Salud</span>
-                                    <span class="complexity">Gestión de Turnos / Base de Datos</span>
-                                </div>
-                            </div>
-                        </label>
-
-                        <label class="rubro-item" id="label-otros">
-                            <input type="radio" name="rubro" id="radio-otros" class="ghost-input">
-                            <div class="rubro-card">
-                                <div class="rubro-icon">
-                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-                                </div>
-                                <div class="rubro-info">
-                                    <span class="title">Otros</span>
-                                    <span class="complexity">Personalizado a medida</span>
-                                    <div class="otros-input-wrapper" id="wrapper-otros">
-                                        <div class="custom-input-row" id="row-otros" style="margin-top: 0.8rem; margin-bottom: 0;">
-                                            <input type="text" id="input-otros" class="otros-text-input" placeholder="Ej: App de Delivery...">
-                                            <div class="action-buttons">
-                                                <button type="button" class="btn-icon-custom btn-check" id="btn-save-otros" title="Confirmar">
-                                                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                                </button>
-                                                <button type="button" class="btn-icon-custom btn-edit" id="btn-edit-otros" title="Modificar texto">
-                                                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                                                </button>
-                                            </div>
+                                <div class="btn-zone absolute bottom-0 right-0 w-[50px] h-[35px] bg-[#222121] rounded-tl-xl p-1 pb-0 pr-0 z-20 group-has-[:checked]/opt:pointer-events-none">
+                                    <div class="relative w-full h-full">
+                                        <div class="absolute inset-0 bg-[#151515] rounded-tl-[0.8rem] rounded-br-[1.2rem] transition-transform duration-300 group-hover/opt:translate-y-[2px]"></div>
+                                        <div class="absolute inset-0 bg-[#2a2929] rounded-tl-[0.8rem] rounded-br-[1.2rem] flex items-center justify-center transition-transform duration-300 group-hover/opt:-translate-y-[2px] group-has-[:checked]/opt:bg-[#C8DDA4] text-[#FFFFFF]/40 group-has-[:checked]/opt:text-[#222121]">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </label>
-                    </div>
-                </section>
+                            </label>
 
-                <section class="step-block" id="step-2">
-                    <div class="step-header">
-                        <h2 class="step-title">2. Funcionalidades Clave</h2>
-                        <button class="btn-edit-section" type="button" title="Modificar sección">
-                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                            Modificar
-                        </button>
-                    </div>
+                            <label class="relative block cursor-pointer group/opt h-[135px]">
+                                <input type="radio" name="plataforma" value="1150" class="peer sr-only">
+                                <div class="absolute inset-0 rounded-[1.2rem] bg-[#2a2929] border border-[#4E6D93]/20 p-4 transition-all duration-300 peer-checked:bg-gradient-to-br peer-checked:from-[#5b7a9e] peer-checked:to-[#4E6D93] peer-checked:border-[#C8DDA4]/40 peer-checked:-translate-y-1 group-hover/opt:-translate-y-1">
+                                    <svg class="w-6 h-6 text-[#C8DDA4] mb-2 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                                    <h3 class="text-[15px] font-bold text-[#FFFFFF] mb-1">App Móvil</h3>
+                                    <p class="text-[11px] text-[#FFFFFF]/60 peer-checked:text-[#FFFFFF]/90 leading-tight">iOS y Android (Clientes).</p>
+                                </div>
+                                <div class="btn-zone absolute bottom-0 right-0 w-[50px] h-[35px] bg-[#222121] rounded-tl-xl p-1 pb-0 pr-0 z-20 group-has-[:checked]/opt:pointer-events-none">
+                                    <div class="relative w-full h-full">
+                                        <div class="absolute inset-0 bg-[#151515] rounded-tl-[0.8rem] rounded-br-[1.2rem] transition-transform duration-300 group-hover/opt:translate-y-[2px]"></div>
+                                        <div class="absolute inset-0 bg-[#2a2929] rounded-tl-[0.8rem] rounded-br-[1.2rem] flex items-center justify-center transition-transform duration-300 group-hover/opt:-translate-y-[2px] group-has-[:checked]/opt:bg-[#C8DDA4] text-[#FFFFFF]/40 group-has-[:checked]/opt:text-[#222121]">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
 
-                    <div class="features-grid">
-                        <label class="feature-item">
-                            <input type="checkbox" class="ghost-input">
-                            <div class="feature-box">
-                                <div class="custom-checkbox"></div>
-                                <span class="feature-text">Panel de Autogestión</span>
-                            </div>
-                        </label>
-
-                        <label class="feature-item">
-                            <input type="checkbox" class="ghost-input">
-                            <div class="feature-box">
-                                <div class="custom-checkbox"></div>
-                                <span class="feature-text">Integración MercadoPago</span>
-                            </div>
-                        </label>
-
-                        <label class="feature-item">
-                            <input type="checkbox" class="ghost-input">
-                            <div class="feature-box">
-                                <div class="custom-checkbox"></div>
-                                <span class="feature-text">Chatbot con IA (ChatGPT)</span>
-                            </div>
-                        </label>
-
-                        <label class="feature-item">
-                            <input type="checkbox" class="ghost-input">
-                            <div class="feature-box">
-                                <div class="custom-checkbox"></div>
-                                <span class="feature-text">Notificaciones por WhatsApp</span>
-                            </div>
-                        </label>
-                    </div>
-                    
-                    <div class="custom-features-manager">
-                        <span class="feature-question-text">¿Deseas agregar alguna funcionalidad adicional? Detállala aquí:</span>
-                        <div id="custom-features-list">
-                            </div>
-                    </div>
-                    
-                    <div class="step-footer">
-                        <button class="btn-listo" id="btn-listo-features" type="button">
-                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                            Listo
-                        </button>
-                    </div>
-                </section>
-
-                <section class="step-block" id="step-3">
-                    <div class="step-header">
-                        <h2 class="step-title">3. Tiempo de Entrega</h2>
-                        <button class="btn-edit-section" type="button" title="Modificar sección">
-                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                            Modificar
-                        </button>
-                    </div>
-
-                    <div class="timeline-container">
-                        <label style="flex: 1; display: flex;">
-                            <input type="radio" name="timeline" class="ghost-input" checked>
-                            <div class="timeline-option">
-                                <span class="time-name">Estándar</span>
-                                <span class="time-meta">2 a 3 meses</span>
-                            </div>
-                        </label>
-
-                        <label style="flex: 1; display: flex;">
-                            <input type="radio" name="timeline" class="ghost-input">
-                            <div class="timeline-option">
-                                <span class="time-name">Acelerado</span>
-                                <span class="time-meta">1 a 2 meses (+20%)</span>
-                            </div>
-                        </label>
-
-                        <label style="flex: 1; display: flex;">
-                            <input type="radio" name="timeline" class="ghost-input">
-                            <div class="timeline-option">
-                                <span class="time-name">Urgente</span>
-                                <span class="time-meta">Menos de 1 mes (+50%)</span>
-                            </div>
-                        </label>
-                    </div>
-                    
-                    <div class="step-footer">
-                        <button class="btn-listo" id="btn-listo-timeline" type="button">
-                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                            Listo
-                        </button>
-                    </div>
-                </section>
-
-            </div>
-
-            <div class="summary-wrapper">
-                <aside class="summary-card">
-                    <span class="summary-label">Inversión Estimada</span>
-                    <p class="summary-text">Esta proyección inicial se calcula de forma dinámica en base a la infraestructura y plazos seleccionados.</p>
-                    <p class="estimado-text text-xs text-gray-500 mt-4 leading-tight italic">*Los valores presentados son estimativos y sujetos a ajustes tras una reunión de definición.</p>
-
-                        <div class="price-main">
-                            <span class="price-symbol">$</span>
-                            <span class="price-val">1.500</span>
+                            <label class="relative block cursor-pointer group/opt h-[135px]">
+                                <input type="radio" name="plataforma" value="2800" class="peer sr-only">
+                                <div class="absolute inset-0 rounded-[1.2rem] bg-[#2a2929] border border-[#4E6D93]/20 p-4 transition-all duration-300 peer-checked:bg-gradient-to-br peer-checked:from-[#e0f0cd] peer-checked:to-[#C8DDA4] peer-checked:border-[#4E6D93]/40 peer-checked:-translate-y-1 group-hover/opt:-translate-y-1">
+                                    <svg class="w-6 h-6 text-[#C8DDA4] mb-2 opacity-80 group-has-[:checked]/opt:text-[#4E6D93]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                                    <h3 class="text-[15px] font-bold text-[#FFFFFF] group-has-[:checked]/opt:text-[#222121] mb-1 transition-colors">Ecosistema</h3>
+                                    <p class="text-[11px] text-[#FFFFFF]/60 group-has-[:checked]/opt:text-[#222121]/80 leading-tight transition-colors">Web + App Móvil.</p>
+                                </div>
+                                <div class="btn-zone absolute bottom-0 right-0 w-[50px] h-[35px] bg-[#222121] rounded-tl-xl p-1 pb-0 pr-0 z-20 group-has-[:checked]/opt:pointer-events-none">
+                                    <div class="relative w-full h-full">
+                                        <div class="absolute inset-0 bg-[#151515] rounded-tl-[0.8rem] rounded-br-[1.2rem] transition-transform duration-300 group-hover/opt:translate-y-[2px]"></div>
+                                        <div class="absolute inset-0 bg-[#2a2929] rounded-tl-[0.8rem] rounded-br-[1.2rem] flex items-center justify-center transition-transform duration-300 group-hover/opt:-translate-y-[2px] group-has-[:checked]/opt:bg-[#4E6D93] text-[#FFFFFF]/40 group-has-[:checked]/opt:text-[#FFFFFF]">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
                         </div>
-                        <span class="price-currency">USD / Dólares</span>
-                   
-                    <button class="cta-button">Solicitar Propuesta Exacta</button>
-                </aside>
+                    </div>
+
+                    <!-- PASO 3: CARRUSEL DE MÓDULOS -->
+                    <div>
+                        <!-- Encabezado y Flechas de control -->
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="flex items-center justify-center w-7 h-7 rounded-full bg-[#4E6D93]/20 text-[#C8DDA4] text-sm font-bold border border-[#4E6D93]/30">3</span>
+                                <h2 class="text-lg font-bold text-[#FFFFFF]">Módulos a Desarrollar</h2>
+                            </div>
+                            
+                            <!-- Flechas Carrusel -->
+                            <div class="flex gap-2">
+                                <button type="button" id="btn-prev" class="w-8 h-8 rounded-lg bg-[#2a2929] border border-[#4E6D93]/30 hover:bg-[#C8DDA4] hover:text-[#222121] text-[#FFFFFF] flex items-center justify-center transition-all duration-300">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+                                </button>
+                                <button type="button" id="btn-next" class="w-8 h-8 rounded-lg bg-[#2a2929] border border-[#4E6D93]/30 hover:bg-[#C8DDA4] hover:text-[#222121] text-[#FFFFFF] flex items-center justify-center transition-all duration-300">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Track del Carrusel -->
+                        <div id="carousel-track" class="flex gap-3 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-4 pt-1 px-1 -mx-1">
+                            
+                            <!-- Todas las 11 opciones pasadas a tarjetas del carrusel -->
+                            
+                            <!-- 1. Reporte Estadístico -->
+                            <label class="relative block cursor-pointer group/mod shrink-0 snap-start w-[220px] h-[105px]">
+                                <input type="checkbox" name="modulo_medida" value="11" class="peer sr-only">
+                                <!-- Efecto oscurecer: peer-checked:bg-[#0a0a0a] -->
+                                <div class="absolute inset-0 rounded-2xl bg-[#2a2929] border border-[#4E6D93]/20 p-3.5 transition-all duration-300 peer-checked:bg-[#0a0a0a] peer-checked:border-[#C8DDA4]/40 peer-checked:-translate-y-1 group-hover/mod:-translate-y-1 flex flex-col justify-center">
+                                    <h4 class="text-[13px] font-bold text-[#FFFFFF] peer-checked:text-[#FFFFFF]/60 mb-1 pr-6 leading-tight transition-colors">Reporte Estadístico</h4>
+                                    <p class="text-[10px] text-[#FFFFFF]/50 peer-checked:text-[#FFFFFF]/30 leading-tight line-clamp-1 transition-colors">Resumen mensual de métricas.</p>
+                                    <span class="text-[#C8DDA4] font-bold text-[11px] mt-1.5 peer-checked:opacity-50">+$11 USD</span>
+                                </div>
+                                <div class="absolute bottom-0 right-0 w-[35px] h-[30px] bg-[#222121] rounded-tl-xl p-1 pb-0 pr-0 z-20 group-has-[:checked]/mod:pointer-events-none">
+                                    <div class="relative w-full h-full">
+                                        <div class="absolute inset-0 bg-[#2a2929] rounded-tl-lg rounded-br-xl flex items-center justify-center transition-colors group-has-[:checked]/mod:bg-[#C8DDA4] text-[#FFFFFF]/20 group-has-[:checked]/mod:text-[#222121]">
+                                            <span class="text-sm leading-none group-has-[:checked]/mod:hidden">+</span>
+                                            <svg class="w-3 h-3 hidden group-has-[:checked]/mod:block" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- 2. Apartado de fiado -->
+                            <label class="relative block cursor-pointer group/mod shrink-0 snap-start w-[220px] h-[105px]">
+                                <input type="checkbox" name="modulo_medida" value="13" class="peer sr-only">
+                                <div class="absolute inset-0 rounded-2xl bg-[#2a2929] border border-[#4E6D93]/20 p-3.5 transition-all duration-300 peer-checked:bg-[#0a0a0a] peer-checked:border-[#C8DDA4]/40 peer-checked:-translate-y-1 group-hover/mod:-translate-y-1 flex flex-col justify-center">
+                                    <h4 class="text-[13px] font-bold text-[#FFFFFF] peer-checked:text-[#FFFFFF]/60 mb-1 pr-6 leading-tight transition-colors">Apartado de Fiado</h4>
+                                    <p class="text-[10px] text-[#FFFFFF]/50 peer-checked:text-[#FFFFFF]/30 leading-tight line-clamp-1 transition-colors">Intereses y comprobantes.</p>
+                                    <span class="text-[#C8DDA4] font-bold text-[11px] mt-1.5 peer-checked:opacity-50">+$13 USD</span>
+                                </div>
+                                <div class="absolute bottom-0 right-0 w-[35px] h-[30px] bg-[#222121] rounded-tl-xl p-1 pb-0 pr-0 z-20 group-has-[:checked]/mod:pointer-events-none">
+                                    <div class="relative w-full h-full">
+                                        <div class="absolute inset-0 bg-[#2a2929] rounded-tl-lg rounded-br-xl flex items-center justify-center transition-colors group-has-[:checked]/mod:bg-[#C8DDA4] text-[#FFFFFF]/20 group-has-[:checked]/mod:text-[#222121]">
+                                            <span class="text-sm leading-none group-has-[:checked]/mod:hidden">+</span>
+                                            <svg class="w-3 h-3 hidden group-has-[:checked]/mod:block" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- 3. Ventas por vendedor -->
+                            <label class="relative block cursor-pointer group/mod shrink-0 snap-start w-[220px] h-[105px]">
+                                <input type="checkbox" name="modulo_medida" value="10" class="peer sr-only">
+                                <div class="absolute inset-0 rounded-2xl bg-[#2a2929] border border-[#4E6D93]/20 p-3.5 transition-all duration-300 peer-checked:bg-[#0a0a0a] peer-checked:border-[#C8DDA4]/40 peer-checked:-translate-y-1 group-hover/mod:-translate-y-1 flex flex-col justify-center">
+                                    <h4 class="text-[13px] font-bold text-[#FFFFFF] peer-checked:text-[#FFFFFF]/60 mb-1 pr-6 leading-tight transition-colors">Ventas por Vendedor</h4>
+                                    <p class="text-[10px] text-[#FFFFFF]/50 peer-checked:text-[#FFFFFF]/30 leading-tight line-clamp-1 transition-colors">Control de ventas individual.</p>
+                                    <span class="text-[#C8DDA4] font-bold text-[11px] mt-1.5 peer-checked:opacity-50">+$10 USD</span>
+                                </div>
+                                <div class="absolute bottom-0 right-0 w-[35px] h-[30px] bg-[#222121] rounded-tl-xl p-1 pb-0 pr-0 z-20 group-has-[:checked]/mod:pointer-events-none">
+                                    <div class="relative w-full h-full">
+                                        <div class="absolute inset-0 bg-[#2a2929] rounded-tl-lg rounded-br-xl flex items-center justify-center transition-colors group-has-[:checked]/mod:bg-[#C8DDA4] text-[#FFFFFF]/20 group-has-[:checked]/mod:text-[#222121]">
+                                            <span class="text-sm leading-none group-has-[:checked]/mod:hidden">+</span>
+                                            <svg class="w-3 h-3 hidden group-has-[:checked]/mod:block" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- 4. Cálculo de Salarios -->
+                            <label class="relative block cursor-pointer group/mod shrink-0 snap-start w-[220px] h-[105px]">
+                                <input type="checkbox" name="modulo_medida" value="14" class="peer sr-only">
+                                <div class="absolute inset-0 rounded-2xl bg-[#2a2929] border border-[#4E6D93]/20 p-3.5 transition-all duration-300 peer-checked:bg-[#0a0a0a] peer-checked:border-[#C8DDA4]/40 peer-checked:-translate-y-1 group-hover/mod:-translate-y-1 flex flex-col justify-center">
+                                    <h4 class="text-[13px] font-bold text-[#FFFFFF] peer-checked:text-[#FFFFFF]/60 mb-1 pr-6 leading-tight transition-colors">Cálculo de Salarios</h4>
+                                    <p class="text-[10px] text-[#FFFFFF]/50 peer-checked:text-[#FFFFFF]/30 leading-tight line-clamp-1 transition-colors">Por comisión (hasta 5 emp).</p>
+                                    <span class="text-[#C8DDA4] font-bold text-[11px] mt-1.5 peer-checked:opacity-50">+$14 USD</span>
+                                </div>
+                                <div class="absolute bottom-0 right-0 w-[35px] h-[30px] bg-[#222121] rounded-tl-xl p-1 pb-0 pr-0 z-20 group-has-[:checked]/mod:pointer-events-none">
+                                    <div class="relative w-full h-full">
+                                        <div class="absolute inset-0 bg-[#2a2929] rounded-tl-lg rounded-br-xl flex items-center justify-center transition-colors group-has-[:checked]/mod:bg-[#C8DDA4] text-[#FFFFFF]/20 group-has-[:checked]/mod:text-[#222121]">
+                                            <span class="text-sm leading-none group-has-[:checked]/mod:hidden">+</span>
+                                            <svg class="w-3 h-3 hidden group-has-[:checked]/mod:block" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- 5. Análisis Preventivo -->
+                            <label class="relative block cursor-pointer group/mod shrink-0 snap-start w-[220px] h-[105px]">
+                                <input type="checkbox" name="modulo_medida" value="20" class="peer sr-only">
+                                <div class="absolute inset-0 rounded-2xl bg-[#2a2929] border border-[#4E6D93]/20 p-3.5 transition-all duration-300 peer-checked:bg-[#0a0a0a] peer-checked:border-[#C8DDA4]/40 peer-checked:-translate-y-1 group-hover/mod:-translate-y-1 flex flex-col justify-center">
+                                    <h4 class="text-[13px] font-bold text-[#FFFFFF] peer-checked:text-[#FFFFFF]/60 mb-1 pr-6 leading-tight transition-colors">Análisis Preventivo</h4>
+                                    <p class="text-[10px] text-[#FFFFFF]/50 peer-checked:text-[#FFFFFF]/30 leading-tight line-clamp-1 transition-colors">Proyecciones y alertas.</p>
+                                    <span class="text-[#C8DDA4] font-bold text-[11px] mt-1.5 peer-checked:opacity-50">+$20 USD</span>
+                                </div>
+                                <div class="absolute bottom-0 right-0 w-[35px] h-[30px] bg-[#222121] rounded-tl-xl p-1 pb-0 pr-0 z-20 group-has-[:checked]/mod:pointer-events-none">
+                                    <div class="relative w-full h-full">
+                                        <div class="absolute inset-0 bg-[#2a2929] rounded-tl-lg rounded-br-xl flex items-center justify-center transition-colors group-has-[:checked]/mod:bg-[#C8DDA4] text-[#FFFFFF]/20 group-has-[:checked]/mod:text-[#222121]">
+                                            <span class="text-sm leading-none group-has-[:checked]/mod:hidden">+</span>
+                                            <svg class="w-3 h-3 hidden group-has-[:checked]/mod:block" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- 6. Generador de Facturas -->
+                            <label class="relative block cursor-pointer group/mod shrink-0 snap-start w-[220px] h-[105px]">
+                                <input type="checkbox" name="modulo_medida" value="25" class="peer sr-only">
+                                <div class="absolute inset-0 rounded-2xl bg-[#2a2929] border border-[#4E6D93]/20 p-3.5 transition-all duration-300 peer-checked:bg-[#0a0a0a] peer-checked:border-[#C8DDA4]/40 peer-checked:-translate-y-1 group-hover/mod:-translate-y-1 flex flex-col justify-center">
+                                    <h4 class="text-[13px] font-bold text-[#FFFFFF] peer-checked:text-[#FFFFFF]/60 mb-1 pr-6 leading-tight transition-colors">Generador Facturas</h4>
+                                    <p class="text-[10px] text-[#FFFFFF]/50 peer-checked:text-[#FFFFFF]/30 leading-tight line-clamp-1 transition-colors">Emisión de comprobantes.</p>
+                                    <span class="text-[#C8DDA4] font-bold text-[11px] mt-1.5 peer-checked:opacity-50">+$25 USD</span>
+                                </div>
+                                <div class="absolute bottom-0 right-0 w-[35px] h-[30px] bg-[#222121] rounded-tl-xl p-1 pb-0 pr-0 z-20 group-has-[:checked]/mod:pointer-events-none">
+                                    <div class="relative w-full h-full">
+                                        <div class="absolute inset-0 bg-[#2a2929] rounded-tl-lg rounded-br-xl flex items-center justify-center transition-colors group-has-[:checked]/mod:bg-[#C8DDA4] text-[#FFFFFF]/20 group-has-[:checked]/mod:text-[#222121]">
+                                            <span class="text-sm leading-none group-has-[:checked]/mod:hidden">+</span>
+                                            <svg class="w-3 h-3 hidden group-has-[:checked]/mod:block" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- 7. Historial Clientes -->
+                            <label class="relative block cursor-pointer group/mod shrink-0 snap-start w-[220px] h-[105px]">
+                                <input type="checkbox" name="modulo_medida" value="9" class="peer sr-only">
+                                <div class="absolute inset-0 rounded-2xl bg-[#2a2929] border border-[#4E6D93]/20 p-3.5 transition-all duration-300 peer-checked:bg-[#0a0a0a] peer-checked:border-[#C8DDA4]/40 peer-checked:-translate-y-1 group-hover/mod:-translate-y-1 flex flex-col justify-center">
+                                    <h4 class="text-[13px] font-bold text-[#FFFFFF] peer-checked:text-[#FFFFFF]/60 mb-1 pr-6 leading-tight transition-colors">Historial de Clientes</h4>
+                                    <p class="text-[10px] text-[#FFFFFF]/50 peer-checked:text-[#FFFFFF]/30 leading-tight line-clamp-1 transition-colors">Registro y seguimiento.</p>
+                                    <span class="text-[#C8DDA4] font-bold text-[11px] mt-1.5 peer-checked:opacity-50">+$9 USD</span>
+                                </div>
+                                <div class="absolute bottom-0 right-0 w-[35px] h-[30px] bg-[#222121] rounded-tl-xl p-1 pb-0 pr-0 z-20 group-has-[:checked]/mod:pointer-events-none">
+                                    <div class="relative w-full h-full">
+                                        <div class="absolute inset-0 bg-[#2a2929] rounded-tl-lg rounded-br-xl flex items-center justify-center transition-colors group-has-[:checked]/mod:bg-[#C8DDA4] text-[#FFFFFF]/20 group-has-[:checked]/mod:text-[#222121]">
+                                            <span class="text-sm leading-none group-has-[:checked]/mod:hidden">+</span>
+                                            <svg class="w-3 h-3 hidden group-has-[:checked]/mod:block" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- 8. Historial Proveedores -->
+                            <label class="relative block cursor-pointer group/mod shrink-0 snap-start w-[220px] h-[105px]">
+                                <input type="checkbox" name="modulo_medida" value="20" class="peer sr-only">
+                                <div class="absolute inset-0 rounded-2xl bg-[#2a2929] border border-[#4E6D93]/20 p-3.5 transition-all duration-300 peer-checked:bg-[#0a0a0a] peer-checked:border-[#C8DDA4]/40 peer-checked:-translate-y-1 group-hover/mod:-translate-y-1 flex flex-col justify-center">
+                                    <h4 class="text-[13px] font-bold text-[#FFFFFF] peer-checked:text-[#FFFFFF]/60 mb-1 pr-6 leading-tight transition-colors">Historial Proveedores</h4>
+                                    <p class="text-[10px] text-[#FFFFFF]/50 peer-checked:text-[#FFFFFF]/30 leading-tight line-clamp-1 transition-colors">Averiguá cuál te conviene.</p>
+                                    <span class="text-[#C8DDA4] font-bold text-[11px] mt-1.5 peer-checked:opacity-50">+$20 USD</span>
+                                </div>
+                                <div class="absolute bottom-0 right-0 w-[35px] h-[30px] bg-[#222121] rounded-tl-xl p-1 pb-0 pr-0 z-20 group-has-[:checked]/mod:pointer-events-none">
+                                    <div class="relative w-full h-full">
+                                        <div class="absolute inset-0 bg-[#2a2929] rounded-tl-lg rounded-br-xl flex items-center justify-center transition-colors group-has-[:checked]/mod:bg-[#C8DDA4] text-[#FFFFFF]/20 group-has-[:checked]/mod:text-[#222121]">
+                                            <span class="text-sm leading-none group-has-[:checked]/mod:hidden">+</span>
+                                            <svg class="w-3 h-3 hidden group-has-[:checked]/mod:block" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- 9. Pasarela Pago -->
+                            <label class="relative block cursor-pointer group/mod shrink-0 snap-start w-[220px] h-[105px]">
+                                <input type="checkbox" name="modulo_medida" value="25" class="peer sr-only">
+                                <div class="absolute inset-0 rounded-2xl bg-[#2a2929] border border-[#4E6D93]/20 p-3.5 transition-all duration-300 peer-checked:bg-[#0a0a0a] peer-checked:border-[#C8DDA4]/40 peer-checked:-translate-y-1 group-hover/mod:-translate-y-1 flex flex-col justify-center">
+                                    <h4 class="text-[13px] font-bold text-[#FFFFFF] peer-checked:text-[#FFFFFF]/60 mb-1 pr-6 leading-tight transition-colors">Pasarela de Pago</h4>
+                                    <p class="text-[10px] text-[#FFFFFF]/50 peer-checked:text-[#FFFFFF]/30 leading-tight line-clamp-1 transition-colors">Cobros online integrados.</p>
+                                    <span class="text-[#C8DDA4] font-bold text-[11px] mt-1.5 peer-checked:opacity-50">+$25 USD</span>
+                                </div>
+                                <div class="absolute bottom-0 right-0 w-[35px] h-[30px] bg-[#222121] rounded-tl-xl p-1 pb-0 pr-0 z-20 group-has-[:checked]/mod:pointer-events-none">
+                                    <div class="relative w-full h-full">
+                                        <div class="absolute inset-0 bg-[#2a2929] rounded-tl-lg rounded-br-xl flex items-center justify-center transition-colors group-has-[:checked]/mod:bg-[#C8DDA4] text-[#FFFFFF]/20 group-has-[:checked]/mod:text-[#222121]">
+                                            <span class="text-sm leading-none group-has-[:checked]/mod:hidden">+</span>
+                                            <svg class="w-3 h-3 hidden group-has-[:checked]/mod:block" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- 10. Chat Proveedores -->
+                            <label class="relative block cursor-pointer group/mod shrink-0 snap-start w-[220px] h-[105px]">
+                                <input type="checkbox" name="modulo_medida" value="26" class="peer sr-only">
+                                <div class="absolute inset-0 rounded-2xl bg-[#2a2929] border border-[#4E6D93]/20 p-3.5 transition-all duration-300 peer-checked:bg-[#0a0a0a] peer-checked:border-[#C8DDA4]/40 peer-checked:-translate-y-1 group-hover/mod:-translate-y-1 flex flex-col justify-center">
+                                    <h4 class="text-[13px] font-bold text-[#FFFFFF] peer-checked:text-[#FFFFFF]/60 mb-1 pr-6 leading-tight transition-colors">Chat Proveedores</h4>
+                                    <p class="text-[10px] text-[#FFFFFF]/50 peer-checked:text-[#FFFFFF]/30 leading-tight line-clamp-1 transition-colors">Comunicación en el sistema.</p>
+                                    <span class="text-[#C8DDA4] font-bold text-[11px] mt-1.5 peer-checked:opacity-50">+$26 USD</span>
+                                </div>
+                                <div class="absolute bottom-0 right-0 w-[35px] h-[30px] bg-[#222121] rounded-tl-xl p-1 pb-0 pr-0 z-20 group-has-[:checked]/mod:pointer-events-none">
+                                    <div class="relative w-full h-full">
+                                        <div class="absolute inset-0 bg-[#2a2929] rounded-tl-lg rounded-br-xl flex items-center justify-center transition-colors group-has-[:checked]/mod:bg-[#C8DDA4] text-[#FFFFFF]/20 group-has-[:checked]/mod:text-[#222121]">
+                                            <span class="text-sm leading-none group-has-[:checked]/mod:hidden">+</span>
+                                            <svg class="w-3 h-3 hidden group-has-[:checked]/mod:block" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- 11. Clientes Destacados -->
+                            <label class="relative block cursor-pointer group/mod shrink-0 snap-start w-[220px] h-[105px]">
+                                <input type="checkbox" name="modulo_medida" value="15" class="peer sr-only">
+                                <div class="absolute inset-0 rounded-2xl bg-[#2a2929] border border-[#4E6D93]/20 p-3.5 transition-all duration-300 peer-checked:bg-[#0a0a0a] peer-checked:border-[#C8DDA4]/40 peer-checked:-translate-y-1 group-hover/mod:-translate-y-1 flex flex-col justify-center">
+                                    <h4 class="text-[13px] font-bold text-[#FFFFFF] peer-checked:text-[#FFFFFF]/60 mb-1 pr-6 leading-tight transition-colors">Clientes Destacados</h4>
+                                    <p class="text-[10px] text-[#FFFFFF]/50 peer-checked:text-[#FFFFFF]/30 leading-tight line-clamp-1 transition-colors">Notificar ofertas (Marketing).</p>
+                                    <span class="text-[#C8DDA4] font-bold text-[11px] mt-1.5 peer-checked:opacity-50">+$15 USD</span>
+                                </div>
+                                <div class="absolute bottom-0 right-0 w-[35px] h-[30px] bg-[#222121] rounded-tl-xl p-1 pb-0 pr-0 z-20 group-has-[:checked]/mod:pointer-events-none">
+                                    <div class="relative w-full h-full">
+                                        <div class="absolute inset-0 bg-[#2a2929] rounded-tl-lg rounded-br-xl flex items-center justify-center transition-colors group-has-[:checked]/mod:bg-[#C8DDA4] text-[#FFFFFF]/20 group-has-[:checked]/mod:text-[#222121]">
+                                            <span class="text-sm leading-none group-has-[:checked]/mod:hidden">+</span>
+                                            <svg class="w-3 h-3 hidden group-has-[:checked]/mod:block" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+
+                        </div>
+                        
+                        <div class="mt-3 flex items-start gap-2 text-[#FFFFFF]/50 text-[12px]">
+                            <svg class="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#4E6D93]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <p>¿Necesitás otras funciones? Detallá tus requerimientos al <a href="/#contacto" class="text-[#C8DDA4] font-medium hover:underline transition-all">contactar un asesor</a>.</p>
+                        </div>
+                    </div>
+
+                    <!-- PASO 4: Urgencia / Tiempos -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="flex items-center justify-center w-7 h-7 rounded-full bg-[#4E6D93]/20 text-[#C8DDA4] text-sm font-bold border border-[#4E6D93]/30">4</span>
+                            <h2 class="text-lg font-bold text-[#FFFFFF]">Tiempo de Entrega</h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <label class="relative flex flex-col items-center justify-center text-center p-3 py-4 rounded-xl bg-[#2a2929] border border-[#4E6D93]/20 cursor-pointer group hover:border-[#4E6D93]/60 transition-all has-[:checked]:border-[#C8DDA4] has-[:checked]:bg-[#344b66]">
+                                <input type="radio" name="urgencia" value="0" class="sr-only" checked>
+                                <h4 class="text-[13px] font-bold text-[#FFFFFF] mb-1">Estándar</h4>
+                                <p class="text-[11px] text-[#FFFFFF]/50">2 a 3 meses</p>
+                            </label>
+
+                            <label class="relative flex flex-col items-center justify-center text-center p-3 py-4 rounded-xl bg-[#2a2929] border border-[#4E6D93]/20 cursor-pointer group hover:border-[#4E6D93]/60 transition-all has-[:checked]:border-[#C8DDA4] has-[:checked]:bg-[#344b66]">
+                                <input type="radio" name="urgencia" value="0.2" class="sr-only">
+                                <h4 class="text-[13px] font-bold text-[#FFFFFF] mb-1">Acelerado</h4>
+                                <p class="text-[11px] text-[#FFFFFF]/50">1 a 2 meses (+20%)</p>
+                            </label>
+
+                            <label class="relative flex flex-col items-center justify-center text-center p-3 py-4 rounded-xl bg-[#2a2929] border border-[#4E6D93]/20 cursor-pointer group hover:border-[#4E6D93]/60 transition-all has-[:checked]:border-[#C8DDA4] has-[:checked]:bg-[#344b66]">
+                                <input type="radio" name="urgencia" value="0.5" class="sr-only">
+                                <h4 class="text-[13px] font-bold text-[#FFFFFF] mb-1">Urgente</h4>
+                                <p class="text-[11px] text-[#FFFFFF]/50">Menos de 1 mes (+50%)</p>
+                            </label>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- COLUMNA DERECHA: Resumen Pegajoso -->
+                <div class="w-full lg:w-[320px]">
+                    <div class="sticky top-28 bg-[#151515] rounded-[1.5rem] p-6 border border-[#4E6D93]/30 shadow-2xl">
+                        
+                        <h3 class="text-lg font-bold text-[#FFFFFF] mb-2 flex items-center gap-2">
+                            <svg class="w-4 h-4 text-[#C8DDA4]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            Estimación de Proyecto
+                        </h3>
+                        <p id="resumen-nombre" class="text-[13px] text-[#FFFFFF]/40 mb-5 italic min-h-[18px] transition-colors duration-300">Tu proyecto...</p>
+                        
+                        <div class="space-y-3 mb-5">
+                            <div class="flex justify-between items-center text-[13px]">
+                                <span class="text-[#FFFFFF]/60">Desarrollo Base</span>
+                                <span id="resumen-base" class="text-[#FFFFFF] font-semibold">$500 USD</span>
+                            </div>
+                            <div class="flex justify-between items-center text-[13px]">
+                                <span class="text-[#FFFFFF]/60">Módulos Extra</span>
+                                <span id="resumen-modulos" class="text-[#FFFFFF] font-semibold">$0 USD</span>
+                            </div>
+                            <div class="flex justify-between items-center text-[13px]">
+                                <span class="text-[#C8DDA4] font-medium">Costo por Urgencia</span>
+                                <span id="resumen-urgencia" class="text-[#C8DDA4] font-semibold">$0 USD</span>
+                            </div>
+                            <p class="text-[9px] leading-tight text-[#FFFFFF]/40 mt-1">*Los valores son estimativos y sujetos a ajustes tras reunión.</p>
+                        </div>
+
+                        <div class="h-px w-full bg-[#4E6D93]/20 mb-5"></div>
+
+                        <div class="mb-6">
+                            <span class="text-[#FFFFFF]/50 text-[11px] block mb-1 uppercase tracking-wider font-bold">Inversión Total Única</span>
+                            <div class="text-3xl font-black text-[#FFFFFF] tracking-tight" id="precio-total">
+                                $500 USD
+                            </div>
+                        </div>
+                        
+                        <a href="/#contacto" class="block text-center w-full bg-[#C8DDA4] text-[#222121] font-bold py-3.5 rounded-xl transition-all duration-300 hover:-translate-y-1 shadow-[0_0_20px_rgba(200,221,164,0.15)] text-[13px] mb-3">
+                            Contactar Asesor
+                        </a>
+
+                        <a href="/Suscripcion" class="block text-center text-[11px] text-[#FFFFFF]/40 hover:text-[#FFFFFF] transition-colors">
+                            ← Ver modelo de suscripción mensual
+                        </a>
+                    </div>
+                </div>
+
             </div>
-
         </div>
-    </div>
-</section>
+    </main>
+</Layout>
 
-<!-- Mantenemos el SCRIPT intacto para la lógica del simulador -->
 <script>
-    const PRECIO_BASE = 500;
+    document.addEventListener("DOMContentLoaded", () => {
+        
+        // --- 1. Lógica del Nombre del Proyecto ---
+        const inputNombre = document.getElementById('input-nombre') as HTMLInputElement;
+        const btnNombre = document.getElementById('btn-nombre')!;
+        const iconCheckNombre = document.getElementById('icon-check-nombre')!;
+        const iconXNombre = document.getElementById('icon-x-nombre')!;
+        const resumenNombre = document.getElementById('resumen-nombre')!;
 
-    const selectRubro = document.getElementById('sim-rubro') as HTMLSelectElement | null;
-    const checkboxesFunciones = document.querySelectorAll<HTMLInputElement>('.sim-checkbox');
-    const radiosTiempo = document.querySelectorAll<HTMLInputElement>('.sim-radio');
-    const displayPrecio = document.getElementById('sim-precio-final');
+        btnNombre.addEventListener('click', () => {
+            if (!inputNombre.readOnly) {
+                if(inputNombre.value.trim() === "") return;
+                
+                inputNombre.readOnly = true;
+                
+                inputNombre.classList.remove('bg-[#151515]', 'border-[#4E6D93]/30', 'shadow-inner');
+                inputNombre.classList.add('bg-[#080808]', 'border-[#151515]', 'text-[#FFFFFF]/50', 'scale-[0.98]');
 
-    function calcularPresupuesto() {
-        if (!displayPrecio) return;
+                resumenNombre.classList.remove('text-[#FFFFFF]/40');
+                resumenNombre.classList.add('text-[#C8DDA4]', 'font-bold');
+                
+                btnNombre.classList.remove('bg-[#2a2929]', 'border-[#4E6D93]/30', 'text-[#C8DDA4]', 'hover:bg-[#4E6D93]/20');
+                btnNombre.classList.add('bg-[#111111]', 'border-transparent', 'text-[#FFFFFF]/40');
+                
+                iconCheckNombre.classList.add('hidden', 'scale-50');
+                iconXNombre.classList.remove('hidden');
+                setTimeout(() => iconXNombre.classList.remove('scale-50'), 50);
 
-        let total = PRECIO_BASE;
+            } else {
+                inputNombre.readOnly = false;
+                
+                inputNombre.classList.remove('bg-[#080808]', 'border-[#151515]', 'text-[#FFFFFF]/50', 'scale-[0.98]');
+                inputNombre.classList.add('bg-[#151515]', 'border-[#4E6D93]/30', 'shadow-inner');
 
-        if (selectRubro) {
-            total += parseInt(selectRubro.value) || 0;
+                resumenNombre.classList.remove('text-[#C8DDA4]', 'font-bold');
+                resumenNombre.classList.add('text-[#FFFFFF]/40');
+                
+                btnNombre.classList.remove('bg-[#111111]', 'border-transparent', 'text-[#FFFFFF]/40');
+                btnNombre.classList.add('bg-[#2a2929]', 'border-[#4E6D93]/30', 'text-[#C8DDA4]', 'hover:bg-[#4E6D93]/20');
+
+                iconXNombre.classList.add('hidden', 'scale-50');
+                iconCheckNombre.classList.remove('hidden');
+                setTimeout(() => iconCheckNombre.classList.remove('scale-50'), 50);
+                
+                inputNombre.focus();
+            }
+        });
+
+        inputNombre.addEventListener('input', (e) => {
+            const valor = (e.target as HTMLInputElement).value;
+            resumenNombre.textContent = valor ? `"${valor}"` : 'Tu proyecto...';
+        });
+
+        // --- 2. Lógica del Carrusel de Módulos ---
+        const track = document.getElementById('carousel-track') as HTMLDivElement;
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+
+        if(track && btnPrev && btnNext) {
+            // Calcula cuánto scroll hacer (Ancho de la tarjeta 220px + Gap 12px = 232px)
+            const getScrollAmount = () => {
+                const card = track.querySelector('label');
+                return card ? card.offsetWidth + 12 : 232; 
+            };
+
+            btnNext.addEventListener('click', () => {
+                track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+            });
+
+            btnPrev.addEventListener('click', () => {
+                track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+            });
         }
 
-        checkboxesFunciones.forEach(checkbox => {
-            if (checkbox.checked) {
-                total += parseInt(checkbox.value) || 0;
-            }
+
+        // --- 3. Lógica de Calculadora en Vivo ---
+        const plataformas = document.querySelectorAll<HTMLInputElement>('input[name="plataforma"]');
+        const modulos = document.querySelectorAll<HTMLInputElement>('input[name="modulo_medida"]');
+        const urgencias = document.querySelectorAll<HTMLInputElement>('input[name="urgencia"]');
+        
+        const textoBase = document.getElementById('resumen-base')!;
+        const textoModulos = document.getElementById('resumen-modulos')!;
+        const textoUrgencia = document.getElementById('resumen-urgencia')!;
+        const textoTotal = document.getElementById('precio-total')!;
+
+        const formatearPlata = (numero: number) => {
+            const formateado = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                maximumFractionDigits: 0
+            }).format(numero);
+            return `${formateado} USD`;
+        };
+
+        const calcularTotal = () => {
+            let precioBase = 0;
+            let precioModulos = 0;
+            let multiplicadorUrgencia = 0;
+
+            const plataformaElegida = document.querySelector<HTMLInputElement>('input[name="plataforma"]:checked');
+            if (plataformaElegida) precioBase = parseInt(plataformaElegida.value);
+
+            modulos.forEach(mod => {
+                if (mod.checked) precioModulos += parseInt(mod.value);
+            });
+
+            const urgenciaElegida = document.querySelector<HTMLInputElement>('input[name="urgencia"]:checked');
+            if (urgenciaElegida) multiplicadorUrgencia = parseFloat(urgenciaElegida.value);
+
+            const subtotal = precioBase + precioModulos;
+            const costoUrgencia = subtotal * multiplicadorUrgencia;
+            const totalFinal = subtotal + costoUrgencia;
+
+            textoBase.textContent = formatearPlata(precioBase);
+            textoModulos.textContent = formatearPlata(precioModulos);
+            textoUrgencia.textContent = formatearPlata(costoUrgencia);
+            textoTotal.textContent = formatearPlata(totalFinal);
+        };
+
+        plataformas.forEach(plat => plat.addEventListener('change', calcularTotal));
+        urgencias.forEach(urg => urg.addEventListener('change', calcularTotal));
+
+        // Magia del carrusel: Calcular + Avanzar solo
+        modulos.forEach(mod => {
+            mod.addEventListener('change', (e) => {
+                calcularTotal();
+                
+                // Si el usuario lo "marcó" (true), esperamos medio segundo y scrolleamos
+                if ((e.target as HTMLInputElement).checked) {
+                    setTimeout(() => {
+                        const card = track.querySelector('label');
+                        const scrollAmount = card ? card.offsetWidth + 12 : 232;
+                        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    }, 400); 
+                }
+            });
         });
 
-        let factorTiempo = 1;
-        radiosTiempo.forEach(radio => {
-            if (radio.checked) {
-                factorTiempo = parseFloat(radio.value) || 1;
-            }
-        });
-
-        total = total * factorTiempo;
-
-        const totalFormateado = new Intl.NumberFormat('es-AR').format(Math.round(total));
-
-        displayPrecio.style.opacity = '0';
-        setTimeout(() => {
-            displayPrecio.textContent = totalFormateado;
-            displayPrecio.style.opacity = '1';
-        }, 150);
-    }
-
-    if (selectRubro) selectRubro.addEventListener('change', calcularPresupuesto);
-    
-    checkboxesFunciones.forEach(checkbox => {
-        checkbox.addEventListener('change', calcularPresupuesto);
+        calcularTotal();
     });
-
-    radiosTiempo.forEach(radio => {
-        radio.addEventListener('change', calcularPresupuesto);
-    });
-
-    calcularPresupuesto();
 </script>
 
 <!-- Mantenemos el ESTILO intacto para la transición de los números -->

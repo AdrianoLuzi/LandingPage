@@ -1,0 +1,92 @@
+---
+// src/pages/cotizar.astro
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+---
+
+<Layout title="Elegir Modelo | Kernel Cynapse">
+    <main class="min-h-screen bg-[#151515] flex flex-col items-center pt-32 md:pt-40 pb-20 px-4 sm:px-6 font-sans text-[#FFFFFF] relative overflow-hidden">
+        
+        <!-- Brillo sutil de fondo general -->
+        <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#4E6D93] opacity-[0.06] blur-[120px] pointer-events-none"></div>
+
+        <!-- Encabezado de la página -->
+        <div class="max-w-3xl text-center mb-12 relative z-10 flex flex-col items-center">
+            
+            <div class="px-3 py-1 mb-6 border-2 border-[#FFFFFF]/80 rounded-lg text-[#FFFFFF] font-black tracking-widest text-xs uppercase shadow-[0_0_10px_rgba(255,255,255,0.1)] inline-block">
+                LOGO
+            </div>
+
+            <h1 class="text-4xl md:text-5xl font-bold text-[#FFFFFF] mb-4 tracking-tight">
+                ¿Qué modelo se adapta mejor a vos?
+            </h1>
+            <p class="text-[#FFFFFF]/60 text-lg max-w-2xl mx-auto">
+                Seleccioná la modalidad de trabajo para conocer más detalles y armar un presupuesto a la medida de tu negocio.
+            </p>
+        </div>
+
+        <!-- Contenedor de las Tarjetas -->
+        <div class="w-full max-w-[1000px] grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+            
+            <!-- TARJETA 1: TIERS (Suscripción) -->
+            <div class="bg-[#222121] border border-[#4E6D93]/20 rounded-[2rem] p-8 md:p-10 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)] relative overflow-hidden">
+                
+                <div class="flex items-center gap-5 mb-8 relative z-10">
+                    <div class="w-14 h-14 rounded-2xl bg-[#4E6D93]/10 border border-[#4E6D93]/30 text-[#C8DDA4] flex items-center justify-center shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-[#FFFFFF] font-bold text-2xl">Suscripción</h2>
+                        <p class="text-[#C8DDA4] text-sm mt-1 font-medium">Planes Mensuales (Tiers)</p>
+                    </div>
+                </div>
+
+                <div class="flex-1 flex flex-col relative z-10">
+                    <p class="text-[#FFFFFF]/70 leading-relaxed mb-8 text-[15px]">
+                        Accedé a un sistema robusto pagando una cuota mensual accesible. Es la mejor opción si querés digitalizar tu negocio sin hacer una gran inversión inicial. 
+                        <br><br>
+                        Empezás con funciones clave como control de stock y ventas, y podés subir de plan o agregar módulos a medida que tu empresa crece.
+                    </p>
+                    
+                    <!-- Botón limpio: Color estático, solo se levanta -->
+                    <a href="/planes" class="w-full block text-center bg-[#2a2929] border border-[#4E6D93]/30 text-[#FFFFFF] font-bold py-4 rounded-xl transition-all duration-300 mt-auto hover:-translate-y-1 shadow-inner hover:shadow-lg">
+                        Ver Planes y Precios
+                    </a>
+                </div>
+            </div>
+
+            <!-- TARJETA 2: SOFTWARE PROPIETARIO (A Medida) -->
+            <div class="bg-[#222121] border border-[#4E6D93]/20 rounded-[2rem] p-8 md:p-10 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)] relative overflow-hidden">
+                
+                <div class="flex items-center gap-5 mb-8 relative z-10">
+                    <div class="w-14 h-14 rounded-2xl bg-[#C8DDA4]/10 border border-[#C8DDA4]/30 text-[#C8DDA4] flex items-center justify-center shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-[#FFFFFF] font-bold text-2xl">A Medida</h2>
+                        <p class="text-[#C8DDA4] text-sm mt-1 font-medium">Software Propietario (Único)</p>
+                    </div>
+                </div>
+
+                <div class="flex-1 flex flex-col relative z-10">
+                    <p class="text-[#FFFFFF]/70 leading-relaxed mb-8 text-[15px]">
+                        Un sistema diseñado, programado y estructurado 100% para las reglas y necesidades de tu empresa o negocio. 
+                        <br><br>
+                        Al ser propietario, hacés un pago único por el programa base y el código es tuyo. No hay cuotas fijas de uso e incluye mantenimiento por tiempo limitado.
+                    </p>
+                    
+                    <!-- Botón limpio: Color estático, solo se levanta -->
+                    <a href="/Medida" class="w-full block text-center bg-[#2a2929] border border-[#4E6D93]/30 text-[#FFFFFF] font-bold py-4 rounded-xl transition-all duration-300 mt-auto hover:-translate-y-1 shadow-inner hover:shadow-lg">
+                        Cotizar mi Sistema
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-16 text-center text-[12px] text-[#FFFFFF]/40 relative z-10">
+            <span>© 2026 Kernel Cynapse.</span>
+        </div>
+
+    </main>
+</Layout>
