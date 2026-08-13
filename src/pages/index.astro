@@ -6,7 +6,7 @@ import Soluciones from '../components/Soluciones.astro'
 import Clientes from '../components/Clientes.astro';
 import Formulario from '../components/Formulario.astro';
 import Preguntas from '../components/Preguntas.astro';
-import Simulador from '../components/Simulador.astro';
+
 import Circuito from '../components/Circuito.astro';
 import '../styles/global.css';
 ---
@@ -23,7 +23,7 @@ import '../styles/global.css';
         <div class="min-h-screen bg-linear-to-b from-[#6B8CFF] via-[#0A101D] to-[#0A101D]"></div>
         
         <!-- 3. Fondo para el resto de tu página (Clientes, Preguntas, etc.) -->
-        <div class="flex-grow bg-[#0A101D]"></div>
+        <div class="grow bg-[#0A101D]"></div>
     </div>
 
     <!-- === CAPA 2: EL CIRCUITO GLOBAL === -->
@@ -38,7 +38,7 @@ import '../styles/global.css';
         <Clientes />
         <Preguntas />
         <Formulario />
-        <Simulador />
+        
     </div>
 
   </main>
