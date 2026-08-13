@@ -1,30 +1,37 @@
 ---
 // src/components/Navbar.astro
 import logoSVG from '../assets/LOGOTIPO SERGIO V4(FINAL).svg?raw';
+
+const rutaActual = Astro.url.pathname;
+const ocultarBoton = rutaActual.includes('/planes') || rutaActual.includes('/Suscripcion') || rutaActual.includes('/Medida');
 ---
 
-<nav id="navbar" class="flex bg-black/30 fixed z-50 top-0 inset-x-0 justify-between items-center py-6 px-6 md:px-12 lg:px-24 transition-all duration-300">
-    <a href="/" class="flex items-center gap-3">
-        <div class="w-16IO h-16 text-kernel-blue flex items-center justify-center" set:html={logoSVG} />
+<!-- Cambiamos 'flex justify-between' por 'grid grid-cols-2 2xl:grid-cols-3' -->
+<nav id="navbar" class="grid grid-cols-2 2xl:grid-cols-3 bg-black/30 fixed z-50 top-0 inset-x-0 items-center py-6 px-6 md:px-12 lg:px-24 transition-all duration-300">
+    
+    <!-- Columna 1: Logo (Alineado a la izquierda) -->
+    <a href="/" class="flex items-center gap-3 justify-self-start">
+        <div class="w-16 h-16 text-kernel-blue flex items-center justify-center" set:html={logoSVG} />
         <span class="font-bold text-xl text-kernel-blue tracking-wide">Kernel Cynapse</span>
     </a>
 
-    <ul class="hidden 2xl:flex  gap-8 text-sm font-semibold text-kernel-blue">
-        <!-- Agregada la "/" antes de cada ID para que el ancla funcione desde cualquier página -->
+    <!-- Columna 2: Menú (Centrado absoluto) -->
+    <ul class="hidden 2xl:flex gap-8 text-sm font-semibold text-kernel-blue justify-self-center">
         <li><a href="/#soluciones" class="hover:text-white transition duration-300">Por qué elegirnos</a></li>
         <li><a href="/#clientes" class="hover:text-white transition duration-300">Nuestros Clientes</a></li>
         <li><a href="/#faq" class="hover:text-white transition duration-300">FAQ</a></li>
         <li><a href="/#contacto" class="hover:text-white transition duration-300">Contacto</a></li>
     </ul>
 
-    <!-- Botones apuntando a la página central de selección -->
-    <a href="/Suscripcion" class="hidden md:block border bg-kernel-green border-kernel-dark text-kernel-dark font-semibold px-6 py-2 rounded-md hover:bg-kernel-blue hover:text-white transition duration-300">
-        Cotizar Proyecto
-    </a>
+    <!-- Columna 3: Botón (Alineado a la derecha) -->
+    <div class="justify-self-end">
+        {!ocultarBoton && (
+            <a href="/#contacto" class="hidden md:block border bg-kernel-green border-kernel-dark text-kernel-dark font-semibold px-6 py-2 rounded-md hover:bg-kernel-blue hover:text-white transition duration-300">
+                Cotizar Proyecto
+            </a>
+        )}
+    </div>
 
-    <a href="/Suscripcion" class="md:hidden bg-kernel-green text-kernel-dark font-bold px-4 py-2 md:px-6 md:py-2.5 rounded-md hover:bg-white hover:scale-105 transition-all duration-300 text-xs 2xl:text-sm shadow-[0_0_15px_rgba(212,242,179,0.2)]">
-        Cotizar Proyecto
-    </a>
 </nav>
 
 <script>
