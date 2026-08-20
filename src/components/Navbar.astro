@@ -31,13 +31,14 @@ const ocultarBoton = rutaActual.includes('/planes') || rutaActual.includes('/Sus
                 Cotizar Proyecto
             </a>
         )}
-    </div>
+    
 
-    <!-- Este botón empieza oculto y solo aparece si el navegador permite instalar PWAs -->
-    <button id="btn-instalar-pwa" class="hidden bg-kernel-green text-kernel-dark font-bold px-4 py-2 rounded-md hover:scale-105 transition-transform">
-         Instalar
+    {!ocultarBoton && (
+    <button id="btn-instalar-pwa" class="hidden xs:block bg-kernel-green text-kernel-dark font-bold px-4 py-2 rounded-md hover:scale-105 transition-transform">
+         App KC
     </button>
-
+    )}
+    </div>
 </nav>
 
 <script>
