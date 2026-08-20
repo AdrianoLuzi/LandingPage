@@ -622,30 +622,46 @@
         height: 100%;
     }
 
-    /* === 1. PLACA BASE APAGADA (Sobrescribe los colores de tu archivo original) === */
+    /* === 1. PLACA BASE APAGADA === */
     .circuito-base path, 
     .circuito-base line {
         stroke: rgba(255, 255, 255, 0.08) !important; 
         stroke-width: 1.5px !important;    
-        fill: none !important;           
+        fill: none !important;            
     }
     
-    /* 1. CIRCULOS */
     .circuito-base circle {
         fill: #172554 !important;        
         stroke: #172554 !important;
         stroke-width: 0.5px !important; 
     }
 
-    /* === 2. MÁSCARA DEL PUNTERO === */
+    /* === 2. MÁSCARA ULTRA LIGERA === */
     .circuito-luces {
-        -webkit-mask-image: radial-gradient(circle 350px at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%);
-        mask-image: radial-gradient(circle 350px at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%);
-        mix-blend-mode: screen; 
-        transition: opacity 0.5s ease;
+        /* Creamos un degradado fijo, SIN mix-blend-mode */
+        -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 65%);
+        mask-image: radial-gradient(circle, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 65%);
+        
+        /* MAGIA: Anclamos el tamaño a 600px para que no calcule los 3300px */
+        -webkit-mask-size: 600px 600px;
+        mask-size: 600px 600px;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        
+        /* Deslizamos ese cuadrado de 600px siguiendo el mouse */
+        -webkit-mask-position: calc(var(--mouse-x) - 300px) calc(var(--mouse-y) - 300px);
+        mask-position: calc(var(--mouse-x) - 300px) calc(var(--mouse-y) - 300px);
+        
+        transition: opacity 0.3s ease;
+        will-change: mask-position, opacity;
+        transform: translateZ(0); 
+        backface-visibility: hidden;
+
+        /* Latido aplicado a TODA la capa junta */
+        animation: latidoNeon 3s ease-in-out infinite alternate !important;
     }
 
-    /* === 3. LAS LÍNEAS DE LUZ === */
+    /* === 3. LAS LÍNEAS DE LUZ (Sin animaciones individuales) === */
     .circuito-luces path, 
     .circuito-luces line,
     .circuito-luces circle {
@@ -653,9 +669,6 @@
         stroke-width: 1.5px !important; 
         fill: none !important;
         stroke-linecap: round !important;
-        stroke-dasharray: none !important;
-        stroke-dashoffset: 0 !important;
-        animation: latidoNeon 3s ease-in-out infinite alternate !important;
     }
 
     .circuito-luces circle {
@@ -663,7 +676,7 @@
     }
 
     @keyframes latidoNeon {
-        0% { opacity: 0.8; }
+        0% { opacity: 0.6; }
         100% { opacity: 1; }
     }
 </style>
@@ -672,50 +685,53 @@
     const capaLuces = document.querySelector('.circuito-luces') as HTMLElement;
 
     if (capaLuces) {
-        // Detectamos si es una pantalla táctil (Celulares y Tablets)
         const esDispositivoTactil = window.matchMedia('(hover: none), (pointer: coarse)').matches;
 
         if (esDispositivoTactil) {
-            // === MODO CELULAR: ENERGÍA AUTÓNOMA ===
-            
+            // === MODO CELULAR ===
             const pulsoDeEnergia = () => {
-                // Averiguamos dónde está mirando el usuario ahora mismo (scroll)
                 const scrollActual = window.scrollY;
                 const altoPantalla = window.innerHeight;
-                const anchoPantalla = window.innerWidth;
-
-                // Generamos una coordenada X y Y aleatoria DENTRO del área visible
-                const randomX = Math.floor(Math.random() * anchoPantalla);
+                const randomX = Math.floor(Math.random() * window.innerWidth);
                 const randomY = Math.floor(scrollActual + (Math.random() * altoPantalla));
 
-                // Movemos la máscara de luz (estando apagada no se ve el salto)
                 capaLuces.style.setProperty('--mouse-x', `${randomX}px`);
                 capaLuces.style.setProperty('--mouse-y', `${randomY}px`);
-
-                // Encendemos la luz (El CSS hace que sea un encendido suave)
                 capaLuces.style.opacity = '1';
 
-                // Después de 1.5 segundos, apagamos la luz suavemente
-                setTimeout(() => {
-                    capaLuces.style.opacity = '0';
-                }, 1200);
+                setTimeout(() => { capaLuces.style.opacity = '0'; }, 1200);
             };
-
-            // Lanzamos el primer pulso casi al entrar a la página
             setTimeout(pulsoDeEnergia, 300);
-
-            // Repetimos el pulso cada 3.5 segundos indefinidamente
-            setInterval(pulsoDeEnergia, 1500);
+            setInterval(pulsoDeEnergia, 2000);
 
         } else {
-            // === MODO COMPUTADORA: SEGUIR EL MOUSE ===
-            
-            document.addEventListener('mousemove', (e) => {
-                capaLuces.style.opacity = '1';
+            // === MODO PC ===
+            let ticking = false;
+            let isScrolling: ReturnType<typeof setTimeout> | undefined;
+
+            // 1. Apagamos la luz instantáneamente al hacer scroll (Cero Tirones)
+            window.addEventListener('scroll', () => {
+                capaLuces.style.opacity = '0';
                 
-                // e.pageX y e.pageY rastrean la coordenada Y a través del scroll
-                capaLuces.style.setProperty('--mouse-x', `${e.pageX}px`);
-                capaLuces.style.setProperty('--mouse-y', `${e.pageY}px`);
+                window.clearTimeout(isScrolling);
+                
+                // La encendemos de nuevo 150ms después de que el usuario deja de scrollear
+                isScrolling = setTimeout(() => {
+                    capaLuces.style.opacity = '1';
+                }, 150);
+            }, { passive: true });
+
+            // 2. Movimiento súper optimizado
+            document.addEventListener('mousemove', (e) => {
+                // Solo calculamos si la luz está encendida (no está scrolleando)
+                if (capaLuces.style.opacity !== '0' && !ticking) {
+                    window.requestAnimationFrame(() => {
+                        capaLuces.style.setProperty('--mouse-x', `${e.pageX}px`);
+                        capaLuces.style.setProperty('--mouse-y', `${e.pageY}px`);
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
             });
 
             document.addEventListener('mouseleave', () => {
