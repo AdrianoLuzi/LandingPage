@@ -27,17 +27,17 @@ const faqs = [
 const carruselFaqs = [...faqs, ...faqs];
 ---
 
-<section id="faq" class="relative bg-[#222121] min-h-screen flex flex-col justify-center overflow-hidden w-full py-20">
+<section id="faq" class="relative bg-kernel-dark min-h-screen flex flex-col justify-center overflow-hidden w-full py-20">
     
     <div class="absolute top-0 left-0 w-full">
-        <div class="absolute top-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#4E6D93] to-transparent shadow-[0_0_25px_8px_rgba(78,109,147,0.8)]"></div>
+        <div class="absolute top-0 w-full h-0.5 bg-linear-to-r from-transparent via-kernel-blue to-transparent shadow-[0_0_25px_8px_rgba(78,109,147,0.8)]"></div>
     </div>
 
     <div class="max-w-7xl mx-auto px-8 mb-12 relative z-10">
-        <h2 class="text-4xl md:text-5xl font-bold text-center text-[#FFFFFF] tracking-wide drop-shadow-md">
+        <h2 class="text-4xl md:text-5xl font-bold text-center text-kernel-white tracking-wide drop-shadow-md">
             Preguntas Frecuentes
         </h2>
-        <p class="text-center text-[#C8DDA4]/80 mt-4 text-sm font-medium">
+        <p class="text-center text-kernel-green/80 mt-4 text-sm font-medium">
             Apoyá el mouse para pausar, hacé clic para expandir la información.
         </p>
     </div>
@@ -46,8 +46,8 @@ const carruselFaqs = [...faqs, ...faqs];
         <div class="marquee-inner flex gap-6 hover:[animation-play-state:paused]">
             
             {carruselFaqs.map((faq) => (
-                <div class="faq-card flex-none w-[320px] md:w-[380px] z-20">
-                    <details class="group bg-[#C8DDA4] rounded-xl p-5 transition-all duration-300 hover:shadow-[0_10px_25px_rgba(200,221,164,0.15)] select-none open:pb-6">
+                <div class="faq-card flex-none w-[320px] md:w-95 z-20">
+                    <details class="group bg-kernel-green rounded-xl p-5 transition-all duration-300 hover:shadow-[0_10px_25px_rgba(200,221,164,0.15)] select-none open:pb-6">
                         
                         <summary class="flex items-center justify-between font-bold text-[#224061] text-base md:text-lg cursor-pointer list-none tracking-wide">
                             <span>{faq.pregunta}</span>
