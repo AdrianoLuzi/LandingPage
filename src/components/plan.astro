@@ -1,22 +1,18 @@
 ---
 // src/pages/planes.astro
-import Layout from '../layouts/Layout.astro';
+
 import '../styles/global.css'; 
 ---
 
 <section>
-    <main class="min-h-screen bg-kernel-bgblue flex flex-col items-center pt-32 md:pt-35 pb-20 px-4 sm:px-6 font-sans text-kernel-white">
+    <main class="min-h-screen bg-kernel-bgblue flex flex-col items-center pt-32 md:pt-35 pb-20 px-4 sm:px-6 font-sans text-kernel-white z-20">
         
         <!-- Contenedor Principal -->
         <div class="w-full max-w-250 bg-kernel-dark rounded-4x1 p-5 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-kernel-blue/20">
             
             <!-- Encabezado del Tablero -->
             <div class="flex justify-between items-center mb-8 px-2 md:px-4">
-                <div class="flex items-center">
-                    <div class="px-3 py-1 border-2 border-kernel-white/80 rounded-lg text-kernel-white font-black tracking-widest text-xs uppercase shadow-[0_0_10px_rgba(255,255,255,0.1)]">
-                        LOGO
-                    </div>
-                </div>
+                
                 
                 <h1 class="text-xl md:text-3xl font-bold tracking-wide text-kernel-white">Elegí tu mejor plan</h1>
                 
@@ -47,7 +43,7 @@ import '../styles/global.css';
                         </ul>
 
                         <div class="absolute bottom-8 left-8">
-                            <span class="text-4xl font-black block mb-0.5 text-kernel-white">$75 <span class="text-lg font-bold text-kernel-white/70">ARS</span></span>
+                            <span class="text-4xl font-black block mb-0.5 text-kernel-white">$75.000 <span class="text-lg font-bold text-kernel-white/70">ARS</span></span>
                             <span class="text-[11px] text-kernel-white/70 uppercase tracking-widest font-medium">por mes</span>
                         </div>
                     </div>
@@ -83,7 +79,7 @@ import '../styles/global.css';
                         </ul>
 
                         <div class="absolute bottom-8 left-8">
-                            <span class="text-4xl font-black block mb-0.5 text-kernel-white">$150 <span class="text-lg font-bold text-kernel-white/70">ARS</span></span>
+                            <span class="text-4xl font-black block mb-0.5 text-kernel-white">$150.000 <span class="text-lg font-bold text-kernel-white/70">ARS</span></span>
                             <span class="text-[11px] text-kernel-white/70 uppercase tracking-widest font-medium">por mes</span>
                         </div>
                     </div>
@@ -111,7 +107,7 @@ import '../styles/global.css';
                         <p class="text-center text-[12px] text-kernel-dark/60 mb-8 relative z-10 font-bold">La solución corporativa total.</p>
 
                         <ul class="space-y-4 text-[14px] text-kernel-dark/90 relative z-10 font-medium">
-                            <li class="flex items-center"><svg class="w-4 h-4 mr-3 text-kernel-blue" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Multisuperficie</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-3 text-kernel-blue" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Multiplataforma</li>
                             <li class="flex items-center"><svg class="w-4 h-4 mr-3 text-kernel-blue" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Servidor dedicado</li>
                             <li class="flex items-center"><svg class="w-4 h-4 mr-3 text-kernel-blue" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Funciones a medida</li>
                             <li class="flex items-center"><svg class="w-4 h-4 mr-3 text-kernel-blue" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Soporte 24/7</li>
@@ -119,7 +115,7 @@ import '../styles/global.css';
                         </ul>
 
                         <div class="absolute bottom-8 left-8">
-                            <span class="text-4xl font-black block mb-0.5 text-kernel-dark">$225 <span class="text-lg font-bold text-kernel-dark/70">ARS</span></span>
+                            <span class="text-4xl font-black block mb-0.5 text-kernel-dark">$225.000 <span class="text-lg font-bold text-kernel-dark/70">ARS</span></span>
                             <span class="text-[11px] text-kernel-dark/70 uppercase tracking-widest font-bold">por mes</span>
                         </div>
                     </div>
@@ -141,7 +137,7 @@ import '../styles/global.css';
             <div class="bg-[#151515] rounded-2xl p-6 border border-kernel-blue/30 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg relative">
                 <div class="text-center md:text-left w-full md:w-auto">
                     <span class="text-kernel-white/50 text-[11px] font-bold uppercase tracking-wider block mb-1">Has seleccionado:</span>
-                    <div id="plan-display" class="text-xl md:text-2xl font-bold text-kernel-green">Plan Inicial ($75 ARS/mes)</div>
+                    <div id="plan-display" class="text-xl md:text-2xl font-bold text-kernel-green">Plan Inicial ($75.000 ARS/mes)</div>
                 </div>
                 
                 <button id="btn-contactar" type="button" class="w-full md:w-auto px-10 py-4 bg-kernel-green text-kernel-dark font-bold rounded-xl transition-all duration-300 hover:-translate-y-1 shadow-[0_0_20px_rgba(200,221,164,0.15)] whitespace-nowrap text-center cursor-pointer">

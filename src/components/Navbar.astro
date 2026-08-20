@@ -6,31 +6,37 @@ const rutaActual = Astro.url.pathname;
 const ocultarBoton = rutaActual.includes('/planes') || rutaActual.includes('/Suscripcion') || rutaActual.includes('/Medida');
 ---
 
-<!-- Cambiamos 'flex justify-between' por 'grid grid-cols-2 2xl:grid-cols-3' -->
-<nav id="navbar" class="grid grid-cols-2 2xl:grid-cols-3 bg-black/30 fixed z-50 top-0 inset-x-0 items-center py-6 px-6 md:px-12 lg:px-24 transition-all duration-300">
+<!-- 1. Cambiamos Grid por Flexbox (flex justify-between) -->
+<nav id="navbar" class="flex items-center justify-between bg-black/30 fixed z-50 top-0 inset-x-0 py-6 px-6 md:px-12 lg:px-24 transition-all duration-300">
     
-    <!-- Columna 1: Logo (Alineado a la izquierda) -->
-    <a href="/" class="flex items-center gap-3 justify-self-start">
+    
+    <a href="/" class="flex items-center gap-3 relative z-10">
         <div class="w-16 h-16 text-kernel-blue flex items-center justify-center" set:html={logoSVG} />
         <span class="font-bold text-xl text-kernel-blue tracking-wide">Kernel Cynapse</span>
     </a>
 
-    <!-- Columna 2: Menú (Centrado absoluto) -->
-    <ul class="hidden 2xl:flex gap-8 text-sm font-semibold text-kernel-blue justify-self-center">
+    
+    {!ocultarBoton && (
+    <ul class="hidden 2xl:flex gap-8 text-sm font-semibold text-kernel-blue ml-auto mr-10 3xl:m-0 3xl:absolute 3xl:left-1/2 3xl:-translate-x-1/2">
         <li><a href="/#soluciones" class="hover:text-white transition duration-300">Por qué elegirnos</a></li>
         <li><a href="/#clientes" class="hover:text-white transition duration-300">Nuestros Clientes</a></li>
         <li><a href="/#faq" class="hover:text-white transition duration-300">FAQ</a></li>
         <li><a href="/#contacto" class="hover:text-white transition duration-300">Contacto</a></li>
     </ul>
-
+    )}
     <!-- Columna 3: Botón (Alineado a la derecha) -->
     <div class="justify-self-end">
         {!ocultarBoton && (
-            <a href="/#contacto" class="hidden md:block border bg-kernel-green border-kernel-dark text-kernel-dark font-semibold px-6 py-2 rounded-md hover:bg-kernel-blue hover:text-white transition duration-300">
+            <a href="/#contacto" class="hidden 3xl:block border bg-kernel-green border-kernel-dark text-kernel-dark font-semibold px-6 py-2 rounded-md hover:bg-kernel-blue hover:text-white transition duration-300">
                 Cotizar Proyecto
             </a>
         )}
     </div>
+
+    <!-- Este botón empieza oculto y solo aparece si el navegador permite instalar PWAs -->
+    <button id="btn-instalar-pwa" class="hidden bg-kernel-green text-kernel-dark font-bold px-4 py-2 rounded-md hover:scale-105 transition-transform">
+        Instalar App
+    </button>
 
 </nav>
 
@@ -48,4 +54,49 @@ const ocultarBoton = rutaActual.includes('/planes') || rutaActual.includes('/Sus
       }
     }
   });
+
+    // 1. Registramos el Service Worker
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js');
+        });
+    }
+
+    // 2. Lógica del Botón de Instalación
+    let eventoInstalacion: any;
+    const botonInstalar = document.getElementById('btn-instalar-pwa');
+
+    // El navegador avisa que la app se puede instalar
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevenimos que salga el cartel automático feo
+        e.preventDefault();
+        // Guardamos el evento para usarlo al hacer clic
+        eventoInstalacion = e;
+        // Mostramos nuestro botón personalizado
+        if (botonInstalar) botonInstalar.classList.remove('hidden');
+    });
+
+    // Cuando el usuario hace clic en nuestro botón
+    if (botonInstalar) {
+        botonInstalar.addEventListener('click', async () => {
+            if (!eventoInstalacion) return;
+            
+            // Lanzamos el cartel nativo del celular
+            eventoInstalacion.prompt();
+            
+            // Esperamos a ver si el usuario aceptó o canceló
+            const { outcome } = await eventoInstalacion.userChoice;
+            if (outcome === 'accepted') {
+                console.log('El usuario instaló la app');
+                botonInstalar.classList.add('hidden'); // Ocultamos el botón porque ya se instaló
+            }
+            // Limpiamos el evento
+            eventoInstalacion = null;
+        });
+    }
+    
+    // Si la app ya está instalada y se está usando en modo standalone, ocultamos el botón
+    window.addEventListener('appinstalled', () => {
+        if (botonInstalar) botonInstalar.classList.add('hidden');
+    });
 </script>

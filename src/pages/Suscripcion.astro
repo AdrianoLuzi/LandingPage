@@ -3,12 +3,17 @@
 import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
 import { Icon } from 'astro-icon/components'
+import Circuito from '../components/Circuito.astro';
 ---
 
 <Layout title="Elegir Modelo | Kernel Cynapse">
     <main class="min-h-screen bg-[#151515] flex flex-col items-center pt-32 md:pt-40 pb-20 px-4 sm:px-6 font-sans text-kernel-white relative overflow-hidden">
         
         
+        <div class="absolute top-0 left-0 w-full h-full z-10 pointer-events-none">
+             <Circuito /> 
+        </div>
+
         <div class="absolute top-20 left-1/2 -translate-x-1/2 w-200 h-100 bg-kernel-blue opacity-[0.06] blur-[120px] pointer-events-none"></div>
 
        
@@ -81,9 +86,6 @@ import { Icon } from 'astro-icon/components'
 
         </div>
 
-        <div class="mt-16 text-center text-[12px] text-kernel-white/40 relative z-10">
-            <span>© 2026 Kernel Cynapse.</span>
-        </div>
 
     </main>
 </Layout>
