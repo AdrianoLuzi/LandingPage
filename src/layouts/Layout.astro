@@ -3,6 +3,7 @@
 
 // Definimos las "Props" (propiedades) que este layout va a recibir.
 // En este caso, queremos poder cambiar el título de la pestaña del navegador para cada página.
+import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
 import Socialbar from '../components/socialbar.astro';
 interface Props {
@@ -58,6 +59,7 @@ const { title } = Astro.props;
 		</main>
 		<Socialbar />
 		</body>
+        <Footer />
 </html>
 <script>
         document.addEventListener("DOMContentLoaded", () => {
